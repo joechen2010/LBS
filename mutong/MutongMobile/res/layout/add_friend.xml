@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:layout_height="wrap_content"
+	android:orientation="vertical" android:gravity="center_horizontal">
+	<TableLayout android:layout_width="match_parent"
+		android:layout_height="wrap_content" android:paddingBottom="30dp">
+
+		<TableRow android:gravity="center" android:paddingTop="5dp"
+			android:paddingBottom="5dp">
+
+			<TextView android:id="@+id/user_name_text" android:text="@string/user_name"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textSize="20dp" />
+
+			<EditText android:id="@+id/user_name_edit"
+				android:layout_width="180dp" android:layout_height="wrap_content" />
+
+		</TableRow>
+
+		<TableRow android:gravity="center" android:paddingTop="5dp"
+			android:paddingBottom="5dp">
+
+			<TextView android:id="@+id/real_name_text" android:text="@string/real_name"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textSize="20dp" />
+
+			<EditText android:id="@+id/real_name_edit"
+				android:layout_width="180dp" android:layout_height="wrap_content" />
+
+		</TableRow>
+
+		<TableRow android:gravity="center" android:paddingTop="5dp"
+			android:paddingBottom="5dp">
+
+			<TextView android:id="@+id/school_text" android:text="@string/school"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textSize="20dp" />
+
+			<EditText android:id="@+id/school_edit"
+				android:layout_width="180dp" android:layout_height="wrap_content" />
+
+		</TableRow>
+
+		<TableRow android:gravity="center" android:paddingTop="5dp"
+			android:paddingBottom="5dp">
+
+			<TextView android:id="@+id/place_text" android:text="@string/place"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textSize="20dp" />
+
+			<EditText android:id="@+id/place_edit" android:layout_width="180dp"
+				android:layout_height="wrap_content" />
+
+		</TableRow>
+
+	</TableLayout>
+
+	<Button android:id="@+id/search" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="@string/search"
+		android:textSize="20dp" />
+</LinearLayout>

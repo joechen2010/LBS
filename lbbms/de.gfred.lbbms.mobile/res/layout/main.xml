@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    
+    <EditText
+    	android:id="@+id/emailText"
+		android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:hint="Email"	
+    />
+    
+	<EditText
+		android:id="@+id/passwordText"
+		android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:hint="Password"
+	    android:password="true"
+    />
+    
+	<Button
+		android:id="@+id/SaveButton"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:text="Save Login"
+	    android:onClick="onClickSaveLogin"	
+    />
+    
+    <Button
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:text="Start Position Service"
+	    android:onClick="onClickServiceStart"	
+    />
+    
+    <Button
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:text="Stop Position Service"
+	    android:onClick="onClickServiceStop"	
+    />
+    
+	<EditText
+		android:id="@+id/messageText"
+		android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:hint="Message"
+	    android:gravity="top"
+	    android:lines="4"
+	    android:maxLength="140"
+    />
+    
+    <Button
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:text="Send Message"
+	    android:onClick="onClickSendMessage"	
+    />
+    
+</LinearLayout>

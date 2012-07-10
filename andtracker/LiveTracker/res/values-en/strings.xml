@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright (C) 2009  Axel Müller <axel.mueller@avanux.de> 
+ 
+ This file is part of LiveTracker.
+ 
+ LiveTracker is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ LiveTracker is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with LiveTracker.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<resources>
+    <string name="app_name">LiveTracker</string>
+
+    <!-- main activity -->    
+    
+    <string name="label_trackingID">Tracking ID</string>
+    <string name="hint_trackingID">n/a</string>
+    <string name="label_locationsSentCount">Locations sent</string>
+    <string name="field_locationsSentCount">0</string>
+    <string name="label_lastLocationSentTime">Last location sent at</string>
+    <string name="field_lastLocationSentTime">none</string>
+    <string name="label_trackerCount">Number of trackers</string>
+    <string name="field_trackerCount">0</string>
+    
+    <string name="button_start">Start</string>
+    <string name="button_stop">Stop</string>
+
+    <string name="label_website">Your location may be tracked live at</string>
+    <string name="label_website_url">http://livetracker.dyndns.org</string>
+
+    <string name="menu_about">About</string>
+    <string name="menu_preferences">Settings</string>
+    <string name="menu_invite">Invite tracker</string>
+    
+    <!-- invite contacts activity -->
+
+    <string name="menu_send_invitation">Send invitation</string>
+    <string name="mail_subject">Location tracking invitation</string>
+    <string name="mail_body">You are invited to track my location at </string>
+    
+    <!-- preferences activity -->
+    
+    <string name="preference_transmissionCategory_title">Location transmission</string>
+
+    <string name="preference_transmissionMode_key">transmission_mode</string>
+    <string name="preference_transmissionMode_title">Transmission mode</string>
+    <string name="preference_transmissionMode_dialogTitle">Location transmission</string>
+
+    <string name="preference_timeInterval_key">time_interval</string>
+    <string name="preference_timeInterval_title">Time interval</string>
+    <string name="preference_timeInterval_dialogTitle">Time interval between locations being sent</string>
+    <string name="preference_timeInterval_unit">seconds</string>
+
+    <string name="preference_distance_key">distance</string>
+    <string name="preference_distance_title">Distance</string>
+    <string name="preference_distance_dialogTitle">Minimum distance between locations being sent</string>
+    <string name="preference_distance_unit">meters</string>
+
+    <!-- about activity -->
+
+    <string name="label_version">Version</string>
+    <string name="label_developer">Developed by</string>
+    <string name="label_email">Email</string>
+    <string name="label_homepage">Homepage</string>
+    <string name="label_license">License</string>
+    <string name="field_license">
+Copyright (C) 2009  Axel Müller\n
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.\n
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n
+You should have received a copy of the GNU General Public License along with this program; if not, see http://www.gnu.org/licenses.     
+    </string>
+
+    <!-- toasts -->    
+
+    <string name="toast_serverNotAvailable">Unable to connect to tracking server.</string>
+    <string name="toast_versionCodeMismatch">LiveTracker version incompatible with tracking server. Please update to a newer version of LiveTracker.</string>
+    <string name="toast_GpsNotAvailable">GPS has to be enabled before this application can run.</string>
+    <string name="toast_timeIntervalValueInvalid">The time interval must be a number having a value of at least</string>
+    <string name="toast_distanceValueInvalid">The distance must be a number having a value of at least</string>
+
+    <!-- notifications -->    
+
+    <string name="notification_service_running_in_background">AndTracker is running in the background.</string>
+    <string name="notification_message_to_users">placeholder - text is provided dynamically</string>
+    
+</resources>

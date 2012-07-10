@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright (C) 2009  Axel Müller <axel.mueller@avanux.de> 
+ 
+ This file is part of LiveTracker.
+ 
+ LiveTracker is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ LiveTracker is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with LiveTracker.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="de.avanux.android.livetracker2"
+      android:versionCode="105" android:versionName="1.0.5">
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:name=".LiveTracker"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait"
+                  >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".PreferencesActivity"></activity>
+        <activity android:name=".ContactsList"></activity>
+        <activity android:name=".InviteContactsByEmailActivity"></activity>
+        <service android:name="LocationTracker"></service>
+    </application>
+    <uses-sdk android:minSdkVersion="3" android:targetSdkVersion="4"/>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <supports-screens/> 
+</manifest> 

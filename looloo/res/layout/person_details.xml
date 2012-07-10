@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="fill_parent" android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <ImageView android:id="@+id/personDetailsImage"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/restaurant" android:padding="10px" />
+        <TextView android:id="@+id/widget33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Gender"
+            android:textStyle="bold">
+        </TextView>
+        <TextView android:id="@+id/personDetailsGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="POL">
+        </TextView>
+        <TextView android:id="@+id/widget35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Year of birth"
+            android:textStyle="bold">
+        </TextView>
+        <TextView android:id="@+id/personDetailsYearOfBirth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GODINA RODJENJA">
+        </TextView>
+
+        <TextView android:id="@+id/widget29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Occupation"
+            android:textStyle="bold">
+        </TextView>
+        <TextView android:id="@+id/personDetailsOccupation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="ZANIMANJE">
+        </TextView>
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Interests"
+            android:textStyle="bold">
+        </TextView>
+        <TextView android:id="@+id/personDetailsInterests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="INTERESOVANJA">
+        </TextView>
+        <Button android:id="@+id/personDetailsButtonBack"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:text="Back">
+        </Button>
+    </LinearLayout>
+</ScrollView>

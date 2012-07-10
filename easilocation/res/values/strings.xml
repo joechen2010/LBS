@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Easi Location</string>
+	<string name="mapApi">0Ey7Fy4ehoi4sfH-YDCPz2FaSjOrSt2lK3WhQdw</string>
+	<string name="help">Help</string>
+	
+	<string name="explain0"><b><i>About EasiLocation</i></b></string>
+	<string name="explain1">EasiLocation is a free application that allows you to search for locations, identify your friends\' positions, find places of interest.</string>
+	<string name="explain2">Most recent version is 1.0.0</string>
+	<string name="explain3"><i>All rights reserved</i></string>
+	
+	<string name="home_btn_map">Map</string>
+	<string name="home_btn_near_by">Near By</string>
+	<string name="home_btn_about">About</string>
+	<string name="home_btn_friends">Friends</string>
+	
+	<string name="description_home">Back to home activity</string>
+	<string name="no_internet_connection_title">Internet connection</string>
+	<string name="no_internet_connection_message">Easilocation requires Internet access, please enable using Settings</string>
+	
+	<string name="menu_button_1">Map mode</string>
+	
+	<string name="username">Username</string>
+	
+	<string name="password">Password</string>
+	
+	<string name="birthday">Birthday</string>
+	
+	<string name="signup">Sign Up</string>
+	
+	<string name="email">Email Address</string>
+	
+	<string name="phone_number">Handphone</string>
+	
+	<string name="create">Create a new user</string>
+	
+	<string name="add_a_friend">Add a friend</string>
+</resources>

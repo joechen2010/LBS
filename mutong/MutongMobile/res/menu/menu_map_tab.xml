@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:title="@string/refresh_map" android:id="@+id/refresh_map" />
+	<item android:title="@string/update_location" android:id="@+id/update_location" />
+	<item android:title="@string/view_friends" android:id="@+id/view_friends" />
+	<item android:title="@string/view_places" android:id="@+id/view_places" />
+	<item android:title="@string/create_place" android:id="@+id/create_place" />
+	<item android:title="@string/setting" android:id="@+id/setting" />
+	<item android:title="@string/logout" android:id="@+id/logout" />
+	<item android:title="@string/exit_program" android:id="@+id/exit_program" />
+</menu>

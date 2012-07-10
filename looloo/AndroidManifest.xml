@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.gnuklub.Looloo">
+	<application android:icon="@drawable/icon">
+		<activity android:name=".Looloo"
+			android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category
+					android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".SearchView"
+			android:label="@string/searchview_name">
+		</activity>
+		<activity android:name=".About"
+			android:label="@string/about_name">
+		</activity>
+		<activity android:name=".AdvSearch"
+			android:label="@string/advsearch_name">
+		</activity>
+		<activity android:name=".EditProfile"
+			android:label="@string/editprofile_name">
+		</activity>
+		<activity android:name=".Settings"
+			android:label="@string/settings_name">
+		</activity>
+		<activity android:name=".PointInfo"
+			android:label="@string/point_info_name">
+		</activity>
+		<activity android:name=".Welcome"
+			android:label="@string/welcome_name">
+		</activity>
+		<activity android:name=".SignIn"
+			android:label="@string/sign_in_name">
+		</activity>
+		<activity android:name=".CreateEditAccount1"
+			android:label="@string/create_edit_account1_name">
+		</activity>
+		<activity android:name=".CreateEditAccount2"
+			android:label="@string/create_edit_account2_name">
+		</activity>
+		<activity android:name=".CreateEditAccount3"
+			android:label="@string/create_edit_account3_name">
+		</activity>
+		<activity android:name=".PersonDetails"
+			android:label="@string/person_details_name">
+		</activity>
+	</application>
+	<uses-permission
+		android:name="android.permission.ACCESS_ASSISTED_GPS">
+	</uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_CELL_ID">
+	</uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_GPS">
+	</uses-permission>
+	<uses-permission
+		android:name="android.permission.ACCESS_LOCATION">
+	</uses-permission>
+</manifest>

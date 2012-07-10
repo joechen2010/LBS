@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright (C) 2009  Axel Müller <axel.mueller@avanux.de> 
+ 
+ This file is part of LiveTracker.
+ 
+ LiveTracker is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ LiveTracker is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with LiveTracker.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_main"
+    android:screenOrientation="portrait"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+	   android:id="@+id/layout_trackingID"
+	   android:layout_width="fill_parent"
+	   android:layout_height="fill_parent"
+	   android:paddingTop="10dip"
+    >
+        <TextView
+            android:id="@+id/label_trackingID"
+            android:text="@string/label_trackingID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dip"
+            android:paddingLeft="50dip"/>
+        <TextView
+            android:id="@+id/field_trackingID"
+            android:hint="@string/hint_trackingID"
+            android:layout_toRightOf="@+id/label_trackingID"
+            android:layout_marginLeft="20dip"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="30dip"
+        />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/layout_locationsSentCount"
+        android:layout_width="fill_parent"
+        android:layout_height="60dip"
+        android:paddingTop="10dip"
+        >
+        <TextView
+            android:id="@+id/label_locationsSentCount"
+            android:text="@string/label_locationsSentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:width="220dip"
+            android:paddingLeft="20dip"
+            android:textSize="18dip" 
+        />
+        <TextView
+            android:id="@+id/field_locationsSentCount"
+            android:text="@string/field_locationsSentCount"
+            android:layout_toRightOf="@+id/label_locationsSentCount"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="24dip" 
+        />		
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/layout_lastLocationSentTime"
+        android:layout_width="fill_parent"
+        android:layout_height="60dip"
+        android:paddingTop="10dip"
+        >
+        <TextView
+            android:id="@+id/label_lastLocationSentTime"
+            android:text="@string/label_lastLocationSentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:width="220dip"
+            android:paddingLeft="20dip"
+            android:textSize="18dip" 
+        />
+        <TextView
+            android:id="@+id/field_lastLocationSentTime"
+            android:text="@string/field_lastLocationSentTime"
+            android:layout_toRightOf="@+id/label_lastLocationSentTime"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="24dip"
+        />    
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/layout_trackerCount"
+        android:layout_width="fill_parent"
+        android:layout_height="60dip"
+        android:paddingTop="10dip"
+    >
+        <TextView
+            android:id="@+id/label_trackerCount"
+            android:text="@string/label_trackerCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:width="220dip"
+            android:paddingLeft="20dip"
+            android:textSize="18dip" 
+        />
+        <TextView
+            android:id="@+id/field_trackerCount"
+            android:text="@string/field_trackerCount"
+            android:layout_toRightOf="@+id/label_trackerCount"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="24dip"
+        />    
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/layout_startstop"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingTop="10dip"
+        >
+        <Button
+            android:id="@+id/button_start"
+            android:text="@string/button_start"
+            android:layout_height="wrap_content"
+            android:layout_width="100dip"
+            android:layout_marginLeft="30dip"
+            android:enabled="false"
+        />
+        <Button
+            android:id="@+id/button_stop"
+            android:text="@string/button_stop"
+            android:layout_toRightOf="@+id/button_start"
+            android:layout_height="wrap_content"
+            android:layout_width="100dip"
+            android:layout_marginLeft="50dip"
+            android:enabled="false"
+        />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/layout_website"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingTop="20dip"
+        >
+        <TextView
+            android:id="@+id/label_website"
+            android:text="@string/label_website"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="14dip"
+        />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/layout_website_url"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+        <TextView
+            android:id="@+id/label_website_url"
+            android:text="@string/label_website_url"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:autoLink="web"
+            android:linksClickable="true"
+            android:textSize="14dip"
+        />
+    </RelativeLayout>
+</LinearLayout>

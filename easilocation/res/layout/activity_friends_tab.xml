@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	
+	<LinearLayout style="@style/TitleBar">
+		<ImageButton style="@style/TitleBarAction"
+            android:contentDescription="@string/description_home"
+            android:src="@drawable/ic_title_home"
+            android:onClick="onHomeClick" />
+            
+		<ImageView style="@style/TitleBarSeparator" />
+		<TextView style="@style/TitleBarText" />
+		<ImageView style="@style/TitleBarSeparator" />
+
+		<ImageButton style="@style/TitleBarAction"
+            android:contentDescription="Refresh current location"
+			android:src="@drawable/ic_title_search"
+			android:onClick="onSearchClick"/>
+	</LinearLayout>
+	
+	<view
+        class="ntu.sce.fyp.easilocation.ui.FriendsTabActivity$FlingableTabHost"
+        android:id="@android:id/tabhost"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="5dip">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:layout_marginLeft="-2dp"
+                android:layout_marginRight="-2dp" />
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1">
+            </FrameLayout>
+        </LinearLayout>
+    </view>
+	
+	
+</LinearLayout>

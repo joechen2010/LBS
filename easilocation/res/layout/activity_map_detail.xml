@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	
+	<LinearLayout
+		android:id="@id/title_container"
+		android:layout_width="fill_parent"
+		android:layout_height="45dp"
+		android:orientation="horizontal"
+		android:background="@color/title_background">
+		<ImageButton 
+            android:id="@id/title_btn_home"
+			android:layout_width="45dp"
+			android:layout_height="fill_parent"
+			android:background="@drawable/title_button"
+            android:contentDescription="Home"
+            android:src="@drawable/ic_title_home"
+            android:onClick="onHomeClick"/>
+		
+		<ImageView style="@style/TitleBarSeparator" />
+		<TextView style="@style/TitleBarText" />
+		<ImageView style="@style/TitleBarSeparator" />
+		
+		<ImageButton
+			android:id="@id/title_btn_my_location"
+			android:layout_width="45dp"
+			android:layout_height="fill_parent"
+			android:background="@drawable/title_button"
+			android:contentDescription="Current location"
+			android:src="@drawable/ic_title_map"
+			android:onClick="onMyLocationClick"/>
+			
+		<ImageView style="@style/TitleBarSeparator" />
+		
+		<ImageButton
+			android:id="@id/title_btn_search"
+			android:layout_width="45dp"
+			android:layout_height="fill_parent"
+			android:background="@drawable/title_button"
+			android:contentDescription="Where to"
+			android:src="@drawable/ic_title_search"
+			android:onClick="onSearchClick"/>
+	</LinearLayout>
+
+	<LinearLayout	
+		android:id="@+id/map_container"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:orientation="vertical">
+		<com.google.android.maps.MapView
+			android:id="@+id/mapview" 
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:enabled="true"
+			android:clickable="true"
+			android:apiKey="@string/mapApi" />
+	</LinearLayout>			
+</LinearLayout>
+	

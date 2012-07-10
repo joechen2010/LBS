@@ -1,0 +1,1 @@
+<%@include file="/resources/common/menu.jsp"%>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	
+	<LinearLayout style="@style/TitleBar">
+		<ImageButton style="@style/TitleBarAction"
+            android:contentDescription="@string/description_home"
+            android:src="@drawable/ic_title_home"
+            android:onClick="onHomeClick" />
+            
+		<ImageView style="@style/TitleBarSeparator" />
+		<TextView style="@style/TitleBarText" />
+		<ImageView style="@style/TitleBarSeparator" />
+
+		<ImageButton style="@style/TitleBarAction"
+            android:contentDescription="Refresh current location"
+			android:src="@drawable/ic_title_search"
+			android:onClick="onSearchClick"/>
+	</LinearLayout>
+	
+	<ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+        
+    <!-- when list contains no item to display following view will be display instead -->
+	<LinearLayout
+		android:id="@android:id/empty"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:orientation="vertical"
+		android:background="@color/background1" >
+			<TextView
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:text="Cannot read contacts"
+				android:textColor="@color/foreground1"
+				android:gravity="center"/>
+	</LinearLayout>
+	
+	
+</LinearLayout>

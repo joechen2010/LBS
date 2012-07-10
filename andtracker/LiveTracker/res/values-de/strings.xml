@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright (C) 2009  Axel Müller <axel.mueller@avanux.de> 
+ 
+ This file is part of LiveTracker.
+ 
+ LiveTracker is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ LiveTracker is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with LiveTracker.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<resources>
+    <string name="app_name">LiveTracker</string>
+
+    <!-- main activity -->    
+    
+    <string name="label_trackingID">Tracking ID</string>
+    <string name="hint_trackingID">keine</string>
+    <string name="label_locationsSentCount">Positionsmeldungen</string>
+    <string name="field_locationsSentCount">0</string>
+    <string name="label_lastLocationSentTime">letzte gesendet um</string>
+    <string name="field_lastLocationSentTime">keine</string>
+    <string name="label_trackerCount">Zuschauer</string>
+    <string name="field_trackerCount">0</string>
+    
+    <string name="button_start">Start</string>
+    <string name="button_stop">Stop</string>
+
+    <string name="label_website">Ihre Position kann live verfolgt werden unter</string>
+    <string name="label_website_url">http://livetracker.dyndns.org</string>
+
+    <string name="menu_about">Über</string>
+    <string name="menu_preferences">Einstellungen</string>
+    <string name="menu_invite">Zuschauer einladen</string>
+    
+    <!-- invite contacts activity -->
+
+    <string name="menu_send_invitation">Einladung senden</string>
+    <string name="mail_subject">Einladung zur Positionsverfolgung</string>
+    <string name="mail_body">Ich lade Sie hiermit ein, meine Position zu verfolgen unter </string>
+    
+    <!-- preferences activity -->
+    
+    <string name="preference_transmissionCategory_title">Positionsmeldungen</string>
+
+    <string name="preference_transmissionMode_key">transmission_mode</string>
+    <string name="preference_transmissionMode_title">Übertragungsmodus</string>
+    <string name="preference_transmissionMode_dialogTitle">Steuerung der Positionsmeldungen</string>
+
+    <string name="preference_timeInterval_key">time_interval</string>
+    <string name="preference_timeInterval_title">Zeitinterval</string>
+    <string name="preference_timeInterval_dialogTitle">Zeit zwischen zwei Positionsmeldungen</string>
+    <string name="preference_timeInterval_unit">Sekunden</string>
+
+    <string name="preference_distance_key">distance</string>
+    <string name="preference_distance_title">Positionsänderung</string>
+    <string name="preference_distance_dialogTitle">Minimaler Positionsänderung in Metern zwischen zwei Positionsmeldungen</string>
+    <string name="preference_distance_unit">Meter</string>
+
+    <!-- about activity -->
+
+    <string name="label_version">Version</string>
+    <string name="label_developer">Entwickelt von</string>
+    <string name="label_email">Email</string>
+    <string name="label_homepage">Homepage</string>
+    <string name="label_license">Lizenz</string>
+    <string name="field_license">
+Copyright (C) 2009  Axel Müller\n
+Dieses Programm ist freie Software. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren Version.\n
+Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License.\n
+Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Programm erhalten haben. Falls nicht, siehe http://www.gnu.org/licenses.     
+    </string>
+
+    <!-- toasts -->    
+
+    <string name="toast_serverNotAvailable">Der Server ist nicht erreichbar.</string>
+    <string name="toast_versionCodeMismatch">Die installierte LiveTracker-Version ist nicht kompatibel mit dem Server. Bitte aktualisieren Sie Ihre LiveTracker-Version.</string>
+    <string name="toast_GpsNotAvailable">GPS muss aktiviert werden, bevor LiverTracker gestarted wird.</string>
+    <string name="toast_timeIntervalValueInvalid">Der Zeitinterval muß einen Wert haben von mindestens</string>
+    <string name="toast_distanceValueInvalid">Die Entfernung muß einen Wert haben von mindestens</string>
+
+    <!-- notifications -->    
+
+    <string name="notification_service_running_in_background">AndTracker is running in the background.</string>
+    <string name="notification_message_to_users">placeholder - text is provided dynamically</string>
+    
+</resources>

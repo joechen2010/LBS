@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  <item
+  	android:id="@+id/refreshmap"
+  	android:title="刷新地图"
+  />
+  
+  <item
+  	android:id="@+id/viewfriends"
+  	android:title="查看好友"
+  />
+  
+  <item
+  	android:id="@+id/viewplace"
+  	android:title="查看地点"
+  />
+  
+  <item
+  	android:id="@+id/newplace"
+  	android:title="新建地点"
+  />
+  
+  <item
+  	android:id="@+id/mainexit"
+  	android:title="退出程序"
+  />
+  
+  <item
+  	android:id="@+id/setup"
+  	android:title="设置"
+  />
+  
+  <item
+  	android:id="@+id/useradvice"
+  	android:title="用户意见反馈"
+  />
+  
+  <item
+  	android:id="@+id/more"
+  	android:title="关于"
+  />
+</menu>

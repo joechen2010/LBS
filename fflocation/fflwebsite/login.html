@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+      <head>
+	    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+	    <META NAME="ROBOTS" CONTENT="NOARCHIVE">
+
+	    <title>Login Page</title>
+
+	    <script type="text/javascript" src="js/exists.js"></script>
+
+	    <link rel="shortcut icon" href="../favicon.ico">
+	    <link rel="stylesheet" type="text/css" href="style/style.css">
+	    <link rel="stylesheet" type="text/css" href="style/struct.css">
+      </head>
+
+      <body onload=init()>
+	    <table id="login_area" width="100%" border="0" background="images/black.jpg">
+		  <tr height="70">
+			<td width="33%"><img src="images/logo.png" alt="logo"></td>
+			<td align="right">
+			      <form name="give_login" action="." method="POST">
+				  <table align="right" width="40%" cellpadding="2" cellspacing="1">
+				      <tr>
+					    <td align="center"><label for="nickname">Username</label></td>
+					    <td align="center"><label for="password">Password</label></td> 
+				      </tr>
+				      <tr>
+					    <td><input align="right" type="text" name="nick" /></td>
+					    <td><input align="right" type="password" name="pw" /></td>
+					    <td><input name="login" value="Login" type="submit" /></td>
+				      </tr>
+				  </table> 
+			      </form>
+			</td>
+			<td width="5%"></td>
+		  </tr>
+	    </table>
+
+	    <div id="div_main">
+		  <div id="div_menu">
+			<br /><br /><br /><br /><br /><br /><br />
+			<a href="http://developer.android.com"><img src="images/android.jpeg" alt="android"></a><br />
+			<p class="con"><br /><br />
+			      <a href="http://validator.w3.org/check?uri=referer">
+				    <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88"/>
+			      </a>
+			</p>
+		  </div>
+
+		  <div id="div_content">
+			<div id="div_title">
+			      <p style="font-size:xx-large;"><i>Find Friend Location</i></p>
+			      <hr class="con"/>
+			</div>
+
+			<div style='float:left;width=50%;margin-right:10%'>
+			      <p class="con"></p>
+			</div>
+
+			<div style='float:left;width=50%;margin-right:15%'>
+			      <p class="con"> <br /> <br /> <br /><img src="images/man-key.png" alt="log in" width="260" height="190"></p>
+			</div>
+
+			<div style='float:left;width=50%'>
+			      <p class="con" style="font-size:x-large;">
+				    Sign up it's free.
+
+				    <form method='post' action='.' id='newUserForm' style='text-align:left;'>
+					  <table border='0' cellpadding='2' cellspacing='2'>
+						<tr id='exists' bgcolor=''>
+						      <td>Nick:</td>
+						      <td><input type="text" maxlength="100" id="nick" name="nick" 
+									onkeyup="question('nick')" autocomplete="off"/>
+						      </td>
+						</tr><tr>
+						      <td>Password:</td>
+						      <td><input type='password' name='pw' value='' /></td>
+						</tr><tr>
+						      <td>Name:</td>
+						      <td><input type='text' name='name' value='' /></td>
+						</tr><tr>
+						      <td>Surname:</td>
+						      <td><input type='text' name='surname' value='' /></td>
+						</tr><tr>
+						      <td>Email:</td>
+						      <td><input type='text' name='email' value='' /></td>
+						</tr><tr>
+						      <td>Phone:</td>
+						      <td><input type='text' name='phone' value='' /></td>
+						</tr><tr>
+						      <td>Country:</td>
+						      <td><input type='text' name='country' value='' /></td>
+						</tr><tr>
+						      <td>Address:</td>
+						      <td><input type='text' name='address' value='' /></td>
+						</tr><tr>
+						      <td></td>						
+						      <td><input type='submit' name='newUser' value='Sign up' /></td>
+						</tr>
+					  </table>
+				    </form>
+			      </p>
+			</div>
+			<br /><br /><br /><br />
+		  </div>	
+	    </div>
+
+	    <div id="div_tail" >
+		<hr id="hr_head"/>
+		<h4><bold> Copyright 2010 Erasmus Students of Computer Science | Roskilde University</bold></h4> 	
+	    </div>
+      </body>
+</html>
+	  

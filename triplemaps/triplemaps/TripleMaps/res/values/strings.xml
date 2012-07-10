@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">TripleMaps</string>
+<string name="GOOGLE_MAPS_API_KEY">0yUk1M4vSgkz0QUNTbcyJHkRvetYr2SyYeIVqdQ</string>
+<string name="btnClickHandler">mapViewClickHandler</string>
+</resources>

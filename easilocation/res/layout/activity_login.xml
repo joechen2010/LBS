@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:padding="15dp"
+	android:background="@drawable/grad_1">
+	
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1">
+		<ImageView android:layout_gravity="center" 
+			android:src="@drawable/easilocation" 
+			android:id="@+id/imageView02" 
+			android:layout_weight="1" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"></ImageView>
+	</LinearLayout> 
+
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:padding="4dp"
+		android:background="@color/background5">
+		<EditText
+			android:id="@+id/username"
+			android:hint="Username"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:ellipsize="end"
+			android:singleLine="true"></EditText>	
+		<EditText
+			android:id="@+id/password"
+			android:hint="Password"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:password="true"
+			android:ellipsize="end"
+			android:singleLine="true"></EditText>
+		<Button
+			android:id="@+id/signin"
+			android:text="Sign in"
+			android:textStyle="bold"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:onClick="onSigninClick"></Button>
+		<Button
+			android:id="@+id/create_new_user"
+			android:text="Create new user"
+			android:textStyle="bold"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:onClick="onCreateClick"></Button>
+		<CheckBox
+			android:id="@+id/check_box"
+			android:text="Remember Login"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"></CheckBox>
+	</LinearLayout>
+
+</LinearLayout>

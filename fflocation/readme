@@ -1,0 +1,8 @@
+The "fflServer" folder contains the Eclipse project of the Web Service.
+The "fflAndroid" folder contains the Eclipse project of the Android Application.
+The "fflwebsite" folder contains the Web Site folder files.
+
+The "fflocation.sql" file contains the SQL queries that create the database.
+The "fflServer.war" file is the web service that can be run by Tomcat7.
+The "mysql-connection-java-5.1.13-bin.jar" file is the MySQL driver for java(web service).
+The "fflandroid.apk" file is the runnable for the Android.

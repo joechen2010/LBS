@@ -1,0 +1,43 @@
+#div_head{
+	text-align: left;
+	width: 100%;
+	height: 60px;
+	background-image:url('../images/black.jpg');
+}
+#div_title{
+	text-align: center;
+	color: red;
+}
+#div_main{
+	;
+}
+#div_menu{
+	float: left;
+	width: 250px;
+	margin-top:1%;
+	margin-left:1%;
+	margin-right:1%;
+}
+#div_content{
+	float: left;
+	width: 68%;
+	margin-top:1%;
+	margin-left:1%;
+	margin-right:1%;
+}
+#div_tail{
+	clear:both;
+	margin-left:22.7%;
+	margin-right:9%;
+	text-align: center;
+}
+#div_tailleft{
+	margin-right: 1%;
+	float: left;
+	width: 49%;
+}
+#div_tailright{
+	margin-left: 1%;
+	float: left;
+	width: 49%;
+}

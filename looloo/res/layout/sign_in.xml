@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_alignParentTop="true"
+	android:layout_alignParentLeft="true">
+<LinearLayout android:id="@+id/widget102"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<TextView android:id="@+id/widget103"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="Username">
+	</TextView>
+	<EditText android:id="@+id/signin_edit_username"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:textSize="18sp"
+		android:padding="10px"
+		android:singleLine="true">
+	</EditText>
+	<TextView android:id="@+id/widget104"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="Password">
+	</TextView>
+	<EditText android:id="@+id/signin_edit_password"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:textSize="18sp"
+		android:password="true" android:padding="10px"
+		android:singleLine="true">
+	</EditText>
+	<Button android:id="@+id/signin_signin_button"
+		android:text="Sign in" android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+	</Button>
+</LinearLayout>
+</ScrollView>

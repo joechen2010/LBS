@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  <item
+  	android:id="@+id/deleteAccount"
+  	android:title="清除账号"
+  />
+  
+  <item
+  	android:id="@+id/setNet"
+  	android:title="网络设置"
+  />
+  
+  <item
+  	android:id="@+id/feedback"
+  	android:title="意见反馈"
+  />
+  
+  <item
+  	android:id="@+id/about"
+  	android:title="关于"
+  />
+  
+  <item
+  	android:id="@+id/exit"
+  	android:title="退出程序"
+  />
+</menu>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright (C) 2009  Axel Müller <axel.mueller@avanux.de> 
+ 
+ This file is part of LiveTracker.
+ 
+ LiveTracker is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ LiveTracker is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with LiveTracker.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout 
+        android:id="@+id/layout_application"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="20px"
+    >
+        <ImageView android:id="@+id/image_icon"
+            android:src="@drawable/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40px"
+        />
+        <LinearLayout 
+            android:id="@+id/layout_developer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+        >
+            <TextView
+                android:id="@+id/field_app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22dip"
+                android:textColor="#FFFFFFFF"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+            />
+            <LinearLayout 
+                android:id="@+id/layout_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5px"
+                android:paddingLeft="20px"
+            >
+                <TextView
+                    android:id="@+id/label_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_version"
+                    android:typeface="serif"
+                    android:textSize="16dip"
+                    android:textColor="#FFFFFFFF"
+                />
+                <TextView
+                    android:id="@+id/field_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:typeface="serif"
+                    android:textSize="16dip"
+                    android:textColor="#FFFFFFFF"
+                    android:paddingLeft="10px"
+                />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+	<LinearLayout 
+        android:id="@+id/layout_developer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="15px"
+        android:gravity="center_horizontal"
+    >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_developer"
+            android:typeface="serif"
+            android:textSize="14dip"
+            android:textColor="#EEEEEEEE"
+        />
+        <TextView
+            android:text="Axel Müller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dip"
+            android:textColor="#FFFFFFFF"
+        />
+    </LinearLayout>
+    <LinearLayout 
+        android:id="@+id/layout_email"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="15px"
+        android:gravity="center_horizontal"
+    >
+        <TextView
+            android:text="@string/label_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="serif"
+            android:textSize="14dip"
+            android:textColor="#EEEEEEEE"
+        />
+        <TextView
+            android:text="livetracker@avanux.de"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dip"
+            android:textColor="#FFFFFFFF"
+            android:autoLink="all"
+            android:linksClickable="true"
+        />
+    </LinearLayout>
+    <LinearLayout 
+        android:id="@+id/layout_homepage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="15px"
+        android:gravity="center_horizontal"
+    >
+        <TextView
+            android:text="@string/label_homepage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="serif"
+            android:textSize="14dip"
+            android:textColor="#EEEEEEEE"
+        />
+        <TextView
+            android:text="http://code.google.com/p/andtracker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dip"
+            android:textColor="#FFFFFFFF"
+            android:autoLink="all"
+            android:linksClickable="true"
+        />
+    </LinearLayout>
+    <LinearLayout 
+        android:id="@+id/layout_license"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:paddingTop="15px"
+        android:gravity="center_horizontal"
+    >
+        <TextView
+            android:text="@string/label_license"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="serif"
+            android:textSize="14dip"
+            android:textColor="#EEEEEEEE"
+        />
+        <ScrollView   
+            android:id="@+id/scrollview_license"  
+            android:layout_height="fill_parent"   
+            android:layout_width="fill_parent" 
+        >
+            <TextView
+                android:id="@+id/field_license" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:text="@string/field_license"
+                android:textSize="12dip"
+                android:textColor="#FFFFFFFF"
+            />
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

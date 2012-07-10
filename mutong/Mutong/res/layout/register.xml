@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+  
+  <RelativeLayout
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:paddingTop="20px">
+  	
+  	<TextView
+  		android:id="@+id/enterUsernameText"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:text="输入用户名:*"
+  		android:paddingTop="5px" 
+		android:paddingLeft="25px"
+  		android:textSize="18px"
+  	/>
+  	
+  	<EditText
+  		android:id="@+id/enterUsernameEdit"
+  		android:layout_width="160px"
+  		android:layout_height="wrap_content"
+  		android:layout_toRightOf="@id/enterUsernameText"
+  	/>
+  </RelativeLayout>
+  
+  <RelativeLayout
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:paddingTop="15px">
+  	
+  	<TextView
+  		android:id="@+id/enterPasswordText"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:text="输入密码:*"
+  		android:paddingTop="10px" 
+		android:paddingLeft="25px"
+  		android:textSize="18px"
+  	/>
+  	
+  	<EditText
+  		android:id="@+id/enterPasswordEdit"
+  		android:layout_width="180px"
+  		android:layout_height="wrap_content"
+  		android:layout_toRightOf="@id/enterPasswordText"
+  		android:password="true"
+  	/>
+  </RelativeLayout>
+  
+  <RelativeLayout
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:paddingTop="15px">
+  	
+  	<TextView
+  		android:id="@+id/enterPassword2Text"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:text="密码确认:*"
+  		android:paddingTop="10px" 
+		android:paddingLeft="25px"
+  		android:textSize="18px"
+  	/>
+  	
+  	<EditText
+  		android:id="@+id/enterPassword2Edit"
+  		android:layout_width="180px"
+  		android:layout_height="wrap_content"
+  		android:layout_toRightOf="@id/enterPassword2Text"
+  		android:password="true"
+  	/>
+  </RelativeLayout>
+  
+  <RelativeLayout
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:paddingTop="15px">
+  	
+  	<TextView
+  		android:id="@+id/enterNameText"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:text="真实姓名:*"
+  		android:paddingTop="10px" 
+		android:paddingLeft="25px"
+  		android:textSize="18px"
+  	/>
+  	
+  	<EditText
+  		android:id="@+id/enterNameEdit"
+  		android:layout_width="180px"
+  		android:layout_height="wrap_content"
+  		android:layout_toRightOf="@id/enterNameText"
+  	/>
+  </RelativeLayout>
+  
+  <RelativeLayout
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:paddingTop="15px">
+  	
+  	<CheckBox
+  		android:id="@+id/admit"
+  		android:layout_width="fill_parent"
+  		android:layout_height="wrap_content"
+		android:text='我已阅读并同意“用户行为守则”'
+  	/>
+  
+  	<TextView
+  		android:layout_width="fill_parent"
+  		android:layout_height="wrap_content"
+  		android:textSize="10px"
+  		android:paddingTop="5px"
+  		android:layout_below="@id/admit"
+  		android:text="注：标“*”为必填项目。"
+  	/>
+  </RelativeLayout>
+  
+  <RelativeLayout
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:paddingLeft="100px"
+  	android:paddingTop="15px">
+  	
+  	<Button
+		android:id="@+id/registerConfirm"
+  		android:layout_width="100px"
+  		android:layout_height="wrap_content"
+  		android:text="注 册"
+  	/>
+  </RelativeLayout>
+  
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:orientation="horizontal"
+  	android:paddingBottom="-1px"
+  	android:layout_gravity="bottom"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content">
+  
+  	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical" 
+		android:layout_width="320px"
+		android:layout_height="wrap_content"
+		android:background="@drawable/tab_one_normal">
+		<TextView 		 
+			android:id="@+id/bottomback"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="right"
+			android:paddingTop="32px"
+			android:background="@drawable/back"/>
+	</LinearLayout>
+  </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,1243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://controller" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://controller" xmlns:intf="http://controller" xmlns:tns1="http://model" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://controller" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model"/>
+   <element name="getUsers">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+      <element name="count" type="xsd:int"/>
+      <element name="page" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Auth">
+    <sequence>
+     <element name="session" type="xsd:int"/>
+     <element name="userID" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <element name="getUsersResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getUsersReturn" type="tns1:UserInfo"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="login">
+    <complexType>
+     <sequence>
+      <element name="nick" type="xsd:string"/>
+      <element name="pw" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginResponse">
+    <complexType>
+     <sequence>
+      <element name="loginReturn" type="impl:Auth"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getNotes">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+      <element name="id" type="xsd:int"/>
+      <element name="c" type="xsd:int"/>
+      <element name="attachPhotos" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getNotesResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getNotesReturn" type="tns1:Note"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginWP">
+    <complexType>
+     <sequence>
+      <element name="nick" type="xsd:string"/>
+      <element name="pw" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginWPResponse">
+    <complexType>
+     <sequence>
+      <element name="loginWPReturn" type="impl:Auth"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="myUser">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="myUserResponse">
+    <complexType>
+     <sequence>
+      <element name="myUserReturn" type="tns1:UserInfo"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="changeUser">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+      <element name="ui" type="tns1:UserInfo"/>
+      <element name="pw" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="changeUserResponse">
+    <complexType>
+     <sequence>
+      <element name="changeUserReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="newUser">
+    <complexType>
+     <sequence>
+      <element name="ui" type="tns1:UserInfo"/>
+      <element name="pw" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="newUserResponse">
+    <complexType>
+     <sequence>
+      <element name="newUserReturn" type="impl:Auth"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="newAdmin">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+      <element name="ui" type="tns1:UserInfo"/>
+      <element name="pw" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="newAdminResponse">
+    <complexType>
+     <sequence>
+      <element name="newAdminReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="logPosition">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+      <element name="p" type="tns1:Position"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="logPositionResponse">
+    <complexType>
+     <sequence>
+      <element name="logPositionReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setNote">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+      <element name="position" type="tns1:Position"/>
+      <element name="note" type="xsd:string"/>
+      <element name="photo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setNoteResponse">
+    <complexType>
+     <sequence>
+      <element name="setNoteReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFriends">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFriendsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getFriendsReturn" type="tns1:UserInfo"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFriendsPage">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+      <element name="count" type="xsd:int"/>
+      <element name="page" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFriendsPageResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getFriendsPageReturn" type="tns1:UserInfo"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getRequests">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getRequestsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getRequestsReturn" type="tns1:UserInfo"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="askFriend">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+      <element name="to" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="askFriendResponse">
+    <complexType>
+     <sequence>
+      <element name="askFriendReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delUser">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delUserResponse">
+    <complexType>
+     <sequence>
+      <element name="delUserReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchFriend">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+      <element name="nick" type="xsd:string"/>
+      <element name="name" type="xsd:string"/>
+      <element name="surname" type="xsd:string"/>
+      <element name="country" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchFriendResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="searchFriendReturn" type="tns1:UserInfo"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getNote">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+      <element name="noteID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getNoteResponse">
+    <complexType>
+     <sequence>
+      <element name="getNoteReturn" type="tns1:Note"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="exists">
+    <complexType>
+     <sequence>
+      <element name="nick" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="existsResponse">
+    <complexType>
+     <sequence>
+      <element name="existsReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPositions">
+    <complexType>
+     <sequence>
+      <element name="a" type="impl:Auth"/>
+      <element name="id" type="xsd:int"/>
+      <element name="c" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPositionsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getPositionsReturn" type="tns1:Position"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://controller"/>
+   <complexType name="Position">
+    <sequence>
+     <element name="date" nillable="true" type="xsd:string"/>
+     <element name="latitude" nillable="true" type="xsd:string"/>
+     <element name="longitude" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="UserInfo">
+    <sequence>
+     <element name="address" nillable="true" type="xsd:string"/>
+     <element name="administrator" type="xsd:boolean"/>
+     <element name="country" nillable="true" type="xsd:string"/>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="nick" nillable="true" type="xsd:string"/>
+     <element name="phone" type="xsd:int"/>
+     <element name="position" nillable="true" type="tns1:Position"/>
+     <element name="surname" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Photo">
+    <sequence>
+     <element name="photo" nillable="true" type="xsd:base64Binary"/>
+    </sequence>
+   </complexType>
+   <complexType name="Note">
+    <sequence>
+     <element name="hasPhoto" type="xsd:boolean"/>
+     <element name="id" type="xsd:int"/>
+     <element name="note" nillable="true" type="xsd:string"/>
+     <element name="owner" type="xsd:int"/>
+     <element name="photo" nillable="true" type="tns1:Photo"/>
+     <element name="position" nillable="true" type="tns1:Position"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="existsResponse">
+
+      <wsdl:part element="impl:existsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="myUserResponse">
+
+      <wsdl:part element="impl:myUserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="newUserRequest">
+
+      <wsdl:part element="impl:newUser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="myUserRequest">
+
+      <wsdl:part element="impl:myUser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="askFriendRequest">
+
+      <wsdl:part element="impl:askFriend" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setNoteResponse">
+
+      <wsdl:part element="impl:setNoteResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUsersResponse">
+
+      <wsdl:part element="impl:getUsersResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="newUserResponse">
+
+      <wsdl:part element="impl:newUserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFriendsPageRequest">
+
+      <wsdl:part element="impl:getFriendsPage" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setNoteRequest">
+
+      <wsdl:part element="impl:setNote" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchFriendRequest">
+
+      <wsdl:part element="impl:searchFriend" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginRequest">
+
+      <wsdl:part element="impl:login" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFriendsRequest">
+
+      <wsdl:part element="impl:getFriends" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchFriendResponse">
+
+      <wsdl:part element="impl:searchFriendResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPositionsRequest">
+
+      <wsdl:part element="impl:getPositions" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="newAdminResponse">
+
+      <wsdl:part element="impl:newAdminResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="delUserResponse">
+
+      <wsdl:part element="impl:delUserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="existsRequest">
+
+      <wsdl:part element="impl:exists" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="logPositionResponse">
+
+      <wsdl:part element="impl:logPositionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPositionsResponse">
+
+      <wsdl:part element="impl:getPositionsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getRequestsRequest">
+
+      <wsdl:part element="impl:getRequests" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFriendsPageResponse">
+
+      <wsdl:part element="impl:getFriendsPageResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNotesRequest">
+
+      <wsdl:part element="impl:getNotes" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="logPositionRequest">
+
+      <wsdl:part element="impl:logPosition" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUsersRequest">
+
+      <wsdl:part element="impl:getUsers" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="delUserRequest">
+
+      <wsdl:part element="impl:delUser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="newAdminRequest">
+
+      <wsdl:part element="impl:newAdmin" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNoteRequest">
+
+      <wsdl:part element="impl:getNote" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginResponse">
+
+      <wsdl:part element="impl:loginResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNoteResponse">
+
+      <wsdl:part element="impl:getNoteResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="changeUserResponse">
+
+      <wsdl:part element="impl:changeUserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="changeUserRequest">
+
+      <wsdl:part element="impl:changeUser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginWPResponse">
+
+      <wsdl:part element="impl:loginWPResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginWPRequest">
+
+      <wsdl:part element="impl:loginWP" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getRequestsResponse">
+
+      <wsdl:part element="impl:getRequestsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNotesResponse">
+
+      <wsdl:part element="impl:getNotesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="askFriendResponse">
+
+      <wsdl:part element="impl:askFriendResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFriendsResponse">
+
+      <wsdl:part element="impl:getFriendsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="FFLocationAPI">
+
+      <wsdl:operation name="getUsers">
+
+         <wsdl:input message="impl:getUsersRequest" name="getUsersRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUsersResponse" name="getUsersResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="login">
+
+         <wsdl:input message="impl:loginRequest" name="loginRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:loginResponse" name="loginResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNotes">
+
+         <wsdl:input message="impl:getNotesRequest" name="getNotesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getNotesResponse" name="getNotesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="loginWP">
+
+         <wsdl:input message="impl:loginWPRequest" name="loginWPRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:loginWPResponse" name="loginWPResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="myUser">
+
+         <wsdl:input message="impl:myUserRequest" name="myUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:myUserResponse" name="myUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="changeUser">
+
+         <wsdl:input message="impl:changeUserRequest" name="changeUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:changeUserResponse" name="changeUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="newUser">
+
+         <wsdl:input message="impl:newUserRequest" name="newUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:newUserResponse" name="newUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="newAdmin">
+
+         <wsdl:input message="impl:newAdminRequest" name="newAdminRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:newAdminResponse" name="newAdminResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="logPosition">
+
+         <wsdl:input message="impl:logPositionRequest" name="logPositionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:logPositionResponse" name="logPositionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setNote">
+
+         <wsdl:input message="impl:setNoteRequest" name="setNoteRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setNoteResponse" name="setNoteResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFriends">
+
+         <wsdl:input message="impl:getFriendsRequest" name="getFriendsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getFriendsResponse" name="getFriendsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFriendsPage">
+
+         <wsdl:input message="impl:getFriendsPageRequest" name="getFriendsPageRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getFriendsPageResponse" name="getFriendsPageResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getRequests">
+
+         <wsdl:input message="impl:getRequestsRequest" name="getRequestsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getRequestsResponse" name="getRequestsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="askFriend">
+
+         <wsdl:input message="impl:askFriendRequest" name="askFriendRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:askFriendResponse" name="askFriendResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="delUser">
+
+         <wsdl:input message="impl:delUserRequest" name="delUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:delUserResponse" name="delUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchFriend">
+
+         <wsdl:input message="impl:searchFriendRequest" name="searchFriendRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchFriendResponse" name="searchFriendResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNote">
+
+         <wsdl:input message="impl:getNoteRequest" name="getNoteRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getNoteResponse" name="getNoteResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="exists">
+
+         <wsdl:input message="impl:existsRequest" name="existsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:existsResponse" name="existsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPositions">
+
+         <wsdl:input message="impl:getPositionsRequest" name="getPositionsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPositionsResponse" name="getPositionsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="FFLocationAPISoapBinding" type="impl:FFLocationAPI">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getUsers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUsersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUsersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="login">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="loginRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="loginResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNotes">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getNotesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getNotesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="loginWP">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="loginWPRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="loginWPResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="myUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="myUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="myUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="changeUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="changeUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="changeUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="newUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="newUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="newUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="newAdmin">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="newAdminRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="newAdminResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="logPosition">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="logPositionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="logPositionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setNote">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setNoteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setNoteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFriends">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getFriendsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getFriendsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFriendsPage">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getFriendsPageRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getFriendsPageResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getRequests">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getRequestsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getRequestsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="askFriend">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="askFriendRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="askFriendResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="delUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="delUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="delUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchFriend">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchFriendRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchFriendResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNote">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getNoteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getNoteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="exists">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="existsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="existsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPositions">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPositionsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPositionsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="FFLocationAPIService">
+
+      <wsdl:port binding="impl:FFLocationAPISoapBinding" name="FFLocationAPI">
+
+         <wsdlsoap:address location="http://localhost:8080/fflServer/services/FFLocationAPI"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

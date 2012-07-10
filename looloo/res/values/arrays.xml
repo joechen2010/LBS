@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<array name="radius">
+		<item>"100m"</item>
+		<item>"200m"</item>
+		<item>"500m"</item>
+		<item>"1000m"</item>
+		<item>"2000m"</item>
+		<item>"5000m"</item>
+		<item>"10000m"</item>
+		<item>"20000m"</item>
+	</array>
+	<array name="MatchingPercentage">
+		<item>"20%"</item>
+		<item>"40%"</item>
+		<item>"60%"</item>
+		<item>"80%"</item>
+		<item>"100%"</item>
+	</array>
+	<array name="radiusValues">
+		<item>"100"</item>
+		<item>"200"</item>
+		<item>"500"</item>
+		<item>"1000"</item>
+		<item>"2000"</item>
+		<item>"5000"</item>
+		<item>"10000"</item>
+		<item>"20000"</item>
+	</array>
+	<array name="MatchingPercentageValues">
+		<item>"20"</item>
+		<item>"40"</item>
+		<item>"60"</item>
+		<item>"80"</item>
+		<item>"100"</item>
+	</array>
+	<!--
+	<array name="updateInterval">
+		<item>1</item>
+		<item>5</item>
+		<item>10</item>
+		<item>20</item>
+		<item>30</item>
+		<item>60</item>
+		<item>120</item>
+	</array>
+	  -->
+</resources>

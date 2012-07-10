@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical">
+	<ScrollView android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		xmlns:android="http://schemas.android.com/apk/res/android">
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:orientation="vertical">
+			<TextView android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="Set your preferences here"
+				android:textAlign="center">
+			</TextView>
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Looking for"
+				android:textSize="20sp">
+			</TextView>
+			<CheckBox android:id="@+id/preferencesLookingForMale"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Male">
+			</CheckBox>
+			<CheckBox android:id="@+id/preferencesLookingForFemale"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Female">
+			</CheckBox>
+
+
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Film taste"
+				android:textSize="20sp">
+			</TextView>
+			<CheckBox android:id="@+id/preferencesFilmTasteAction"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Action">
+			</CheckBox>
+			<CheckBox android:id="@+id/preferencesFilmTasteDrama"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Drama">
+			</CheckBox>
+			<CheckBox android:id="@+id/preferencesFilmTasteHorror"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Horror">
+			</CheckBox>
+			<CheckBox android:id="@+id/preferencesFilmTasteComedy"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Comedy">
+			</CheckBox>
+
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Music taste"
+				android:textSize="20sp">
+			</TextView>
+			<CheckBox android:id="@+id/preferencesMusicTastePop"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Pop">
+			</CheckBox>
+			<CheckBox android:id="@+id/preferencesMusicTasteRock"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Rock">
+			</CheckBox>
+			<CheckBox android:id="@+id/preferencesMusicTasteTechno"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Techno">
+			</CheckBox>
+			<CheckBox android:id="@+id/preferencesMusicTasteMetal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Metal">
+			</CheckBox>
+
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Book taste"
+				android:textSize="20sp">
+			</TextView>
+			
+			<CheckBox android:id="@+id/preferencesBookTasteClassics"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Classics">
+			</CheckBox>
+			<CheckBox android:id="@+id/preferencesBookTasteModern"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Modern">
+			</CheckBox>
+
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Favorite pastime" android:textSize="20sp">
+			</TextView>
+			<CheckBox
+				android:id="@+id/preferencesFavoritePastimeComputers"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Computers">
+			</CheckBox>
+			<CheckBox
+				android:id="@+id/preferencesFavoritePastimeSports"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Sports">
+			</CheckBox>
+
+			<Button android:id="@+id/preferencesNext" android:text="Next"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content">
+				</Button>
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

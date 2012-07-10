@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+android:id="@+id/widget157"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+>
+<ScrollView
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+<LinearLayout
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+>
+<TextView
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="Select your prefered types of places here."
+android:textAlign="center"
+>
+</TextView>
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Restorants"
+android:textSize="20sp"
+>
+</TextView>
+<CheckBox
+android:id="@+id/accountCheckRestaurantPizza"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Pizza"
+>
+</CheckBox>
+<CheckBox
+android:id="@+id/accountCheckRestaurantSushi"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Sushi"
+>
+</CheckBox>
+
+
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Night bars"
+android:textSize="20sp"
+>
+</TextView>
+<CheckBox
+android:id="@+id/accountCheckNightBarsDiscotheques"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Discoteques"
+>
+</CheckBox>
+<CheckBox
+android:id="@+id/accountCheckNightBarsCoffeeBars"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Coffee bars"
+>
+</CheckBox>
+<CheckBox
+android:id="@+id/accountCheckNightBarsBilliardClubs"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Billiard clubs"
+>
+</CheckBox>
+
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Monuments"
+android:textSize="20sp"
+>
+</TextView>
+<CheckBox
+android:id="@+id/accountCheckMonumentsAllMonuments"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="All monuments"
+>
+</CheckBox>
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Sport places"
+android:textSize="20sp"
+>
+</TextView>
+<CheckBox
+android:id="@+id/accountCheckSportPlacesSportArenas"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Sports arenas"
+>
+</CheckBox>
+<CheckBox
+android:id="@+id/accountCheckSportPlacesTennisCourts"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Tennis courts"
+>
+</CheckBox>
+<CheckBox
+android:id="@+id/accountCheckSportPlacesRecreationalParks"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Recreational parks"
+>
+</CheckBox>
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Educational places"
+android:textSize="20sp"
+>
+</TextView>
+<CheckBox
+android:id="@+id/accountCheckEducationalPlacesUniversities"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Universities"
+>
+</CheckBox>
+<CheckBox
+android:id="@+id/accountCheckEducationalPlacesColleges"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Colleges"
+>
+</CheckBox>
+<CheckBox
+android:id="@+id/accountCheckEducationalPlacesHighSchools"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="High schools"
+>
+</CheckBox>
+
+
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Shopping"
+android:textSize="20sp"
+>
+</TextView>
+<CheckBox
+android:id="@+id/accountCheckShoppingShoppingMalls"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Shopping malls"
+>
+</CheckBox>
+<CheckBox
+android:id="@+id/accountCheckShoppingOpenMarkets"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Open markets"
+>
+</CheckBox>
+<Button
+	android:id="@+id/apply"
+ 	android:text="Apply"
+ 	android:layout_width="fill_parent"
+ 	android:layout_height="wrap_content"
+/>
+</LinearLayout>
+</ScrollView>
+</LinearLayout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from FFLocationAPIService WSDL service -->
+
+  <service name="FFLocationAPI" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://controller"/>
+      <parameter name="wsdlServiceElement" value="FFLocationAPIService"/>
+      <parameter name="schemaQualified" value="http://model,http://controller"/>
+      <parameter name="wsdlServicePort" value="FFLocationAPI"/>
+      <parameter name="className" value="controller.FFLocationAPI"/>
+      <parameter name="wsdlPortType" value="FFLocationAPI"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://model" name="getUsers" qname="operNS:getUsers" returnQName="retNS:getUsersReturn" returnType="rtns:UserInfo" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:count" type="tns:int"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:page" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://controller" name="login" qname="operNS:login" returnQName="retNS:loginReturn" returnType="rtns:Auth" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nick" type="tns:string"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:pw" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://model" name="getNotes" qname="operNS:getNotes" returnQName="retNS:getNotesReturn" returnType="rtns:Note" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:c" type="tns:int"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:attachPhotos" type="tns:boolean"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://controller" name="loginWP" qname="operNS:loginWP" returnQName="retNS:loginWPReturn" returnType="rtns:Auth" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nick" type="tns:string"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:pw" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://model" name="myUser" qname="operNS:myUser" returnQName="retNS:myUserReturn" returnType="rtns:UserInfo" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="changeUser" qname="operNS:changeUser" returnQName="retNS:changeUserReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://model" qname="pns:ui" type="tns:UserInfo"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:pw" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://controller" name="newUser" qname="operNS:newUser" returnQName="retNS:newUserReturn" returnType="rtns:Auth" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://model" qname="pns:ui" type="tns:UserInfo"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:pw" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="newAdmin" qname="operNS:newAdmin" returnQName="retNS:newAdminReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://model" qname="pns:ui" type="tns:UserInfo"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:pw" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="logPosition" qname="operNS:logPosition" returnQName="retNS:logPositionReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://model" qname="pns:p" type="tns:Position"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="setNote" qname="operNS:setNote" returnQName="retNS:setNoteReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://model" qname="pns:position" type="tns:Position"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:note" type="tns:string"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:photo" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://model" name="getFriends" qname="operNS:getFriends" returnQName="retNS:getFriendsReturn" returnType="rtns:UserInfo" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://model" name="getFriendsPage" qname="operNS:getFriendsPage" returnQName="retNS:getFriendsPageReturn" returnType="rtns:UserInfo" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:count" type="tns:int"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:page" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://model" name="getRequests" qname="operNS:getRequests" returnQName="retNS:getRequestsReturn" returnType="rtns:UserInfo" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="askFriend" qname="operNS:askFriend" returnQName="retNS:askFriendReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:to" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="delUser" qname="operNS:delUser" returnQName="retNS:delUserReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://model" name="searchFriend" qname="operNS:searchFriend" returnQName="retNS:searchFriendReturn" returnType="rtns:UserInfo" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nick" type="tns:string"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:surname" type="tns:string"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:country" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://model" name="getNote" qname="operNS:getNote" returnQName="retNS:getNoteReturn" returnType="rtns:Note" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:noteID" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="exists" qname="operNS:exists" returnQName="retNS:existsReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nick" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://controller" xmlns:retNS="http://controller" xmlns:rtns="http://model" name="getPositions" qname="operNS:getPositions" returnQName="retNS:getPositionsReturn" returnType="rtns:Position" soapAction="">
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://controller" qname="pns:a" type="tns:Auth"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+        <parameter xmlns:pns="http://controller" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:c" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="getNote getRequests myUser delUser loginWP logPosition newAdmin getPositions exists setNote getFriends askFriend changeUser login getFriendsPage getNotes searchFriend getUsers newUser"/>
+
+      <typeMapping xmlns:ns="http://model" qname="ns:Photo" type="java:model.Photo" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://controller" qname="ns:Auth" type="java:controller.Auth" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://model" qname="ns:Note" type="java:model.Note" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://model" qname="ns:UserInfo" type="java:model.UserInfo" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://model" qname="ns:Position" type="java:model.Position" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

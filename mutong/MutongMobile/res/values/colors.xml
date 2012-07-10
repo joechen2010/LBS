@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="user_name_existed">#FF0000</color>
+	<color name="black">#000000</color><!--黑色 -->
+	<color name="white">#FFFFFF</color><!-- 白色 -->
+</resources>

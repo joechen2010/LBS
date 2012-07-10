@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    style="@style/ListItem">
+
+    <TextView
+        android:id="@android:id/text1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:gravity="left"
+        android:singleLine="true"
+        android:ellipsize="end" />
+	<TextView
+		android:id="@android:id/text2"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:gravity="left"
+		android:singleLine="true"
+		android:ellipsize="end" />
+        
+	<!--<ImageView style="@style/TitleBarSeparator" />
+
+	 need to import the image source in the code 
+    <ImageView 
+    	android:id="@android:id/icon"
+    	android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="?android:attr/listPreferredItemHeight"
+        android:maxHeight="?android:attr/listPreferredItemHeight" />
+-->
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/clear_account" android:title="@string/clear_account" />
+	<item android:id="@+id/network_setting" android:title="@string/network_setting" />
+	<item android:id="@+id/about" android:title="@string/about" />
+	<item android:id="@+id/exit_program" android:title="@string/exit_program" />
+</menu>

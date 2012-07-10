@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:layout_width = "fill_parent"
+	android:layout_height="wrap_content">
+	<RelativeLayout
+		android:id="@+id/relative1" 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:paddingTop="30px">
+		
+		<TextView 
+			android:id = "@+id/usernameText" 
+			android:text="用户名：" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:paddingTop = "5px" 
+			android:paddingLeft="25px"
+			android:textSize="20px"
+			/>
+		
+		<EditText 
+			android:id="@+id/usernameEdit" 
+			android:layout_width="180px" 
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/usernameText"
+			/>
+	</RelativeLayout>
+	
+	<RelativeLayout 
+		android:id="@+id/relative2" 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:paddingTop="20px">
+		
+		<TextView 
+			android:id = "@+id/passwordText" 
+			android:text="密码  ：" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:paddingTop = "10px" 
+			android:paddingLeft="36px"
+			android:textSize="20px"
+			/>
+		
+		<EditText 
+			android:id="@+id/passwordEdit" 
+			android:layout_width="180px" 
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/passwordText"
+			android:password="true"
+			/>
+	</RelativeLayout>
+	
+	<RelativeLayout 
+		android:id="@+id/relative3" 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:paddingTop="20px">
+		
+		<TextView 
+			android:id = "@+id/stateText" 
+			android:text="状态  ：" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:paddingTop = "10px" 
+			android:paddingLeft="36px"
+			android:textSize="20px"
+			/>
+		
+		<Spinner 
+			android:id="@+id/stateSpinner" 
+			android:layout_height="wrap_content" 
+			android:layout_width="180px"
+			android:drawSelectorOnTop="true" 
+			android:layout_toRightOf="@id/stateText"
+			/>
+	</RelativeLayout>
+	
+	<RelativeLayout 
+		android:id="@+id/relative4" 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:paddingTop="30px" 
+		android:paddingLeft="20px">
+		
+		<CheckBox 
+			android:id="@+id/savename" 
+			android:layout_width="150px" 
+			android:layout_height="wrap_content" 
+			android:text="保存用户名"
+			/>
+		
+		<CheckBox 
+			android:id="@+id/savepassword" 
+			android:layout_width="150px" 
+			android:layout_height="wrap_content" 
+			android:layout_toRightOf="@id/savename"
+			android:text="保存用户密码"
+			/>
+	</RelativeLayout>
+	
+	<RelativeLayout
+		android:id="@+id/relative5"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:paddingTop="20px"
+		android:paddingLeft="60px">
+		
+		<Button
+			android:id="@+id/loginButton"
+			android:layout_width="100px"
+			android:layout_height="wrap_content"
+			android:text="登录"
+		/>
+		
+		<Button
+			android:id="@+id/registerButton"
+			android:layout_width="100px"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/loginButton"
+			android:text="注册"
+		/>
+	</RelativeLayout>
+	
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  		android:orientation="horizontal"
+  		android:paddingTop="35px"
+  		android:paddingBottom="-1px"
+  		android:layout_width="fill_parent"
+  		android:layout_height="wrap_content">
+  
+  		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:orientation="vertical" 
+			android:layout_width="320px"
+			android:layout_height="wrap_content"
+			android:background="@drawable/tab_one_normal">
+			<TextView 		 
+				android:id="@+id/bottommenu"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="left" 
+				android:paddingTop="32px"
+				android:background="@drawable/home"
+			/>
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:title="@string/add_friends" android:id="@+id/add_friends" />
+	<item android:title="@string/recommend_friends" android:id="@+id/recommend_friends" />
+	<item android:title="@string/refresh_friend" android:id="@+id/refresh_friend" />
+	<item android:title="@string/refresh_request" android:id="@+id/refresh_request" />
+	<item android:title="@string/program_setting" android:id="@+id/program_setting" />
+	<item android:title="@string/logout" android:id="@+id/logout" />
+	<item android:title="@string/exit_program" android:id="@+id/exit_program" />
+</menu>

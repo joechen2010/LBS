@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@id/menu_button_1" android:title="Map mode" android:icon="@drawable/ic_menu_preferences">
+		<menu>
+			<group android:checkableBehavior="single">
+				<item android:id="@id/submenu_button_1" android:title="Map mode" android:checked="true" />
+				<item android:id="@id/submenu_button_2" android:title="Satellite mode" />
+				<item android:id="@id/submenu_button_3" android:title="Traffic mode" />
+				<item android:id="@id/submenu_button_4" android:title="Street view mode" />
+			</group>
+		</menu>
+	</item>
+	<item android:id="@id/menu_button_2" android:title="" android:icon="@drawable/ic_menu_shout"></item>
+	<item android:id="@id/menu_button_3" android:title="" android:icon="@drawable/ic_menu_shout"></item>
+	<item android:id="@id/menu_button_4" android:title="" android:icon="@drawable/ic_menu_shout"></item>
+	<item android:id="@id/menu_button_5" android:title="" android:icon="@drawable/ic_menu_shout"></item>
+	<item android:id="@id/menu_button_6" android:title="" android:icon="@drawable/ic_menu_shout"></item>
+</menu>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_alignParentTop="true"
+	android:layout_alignParentLeft="true">
+<LinearLayout android:id="@+id/widget0"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<ImageView android:id="@+id/pointFocusImage"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:src="@drawable/restaurant" android:padding="10px" />
+	<TextView android:id="@+id/widget33"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="Name"
+		android:textStyle="bold">
+	</TextView>
+	<TextView android:id="@+id/pointInfoName"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="IME TACKE">
+	</TextView>
+	<TextView android:id="@+id/widget35"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="Description"
+		android:textStyle="bold">
+	</TextView>
+	<TextView android:id="@+id/pointInfoDescription"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="OPIS TACKE">
+	</TextView>
+
+	<TextView android:id="@+id/widget29"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="Mark"
+		android:textStyle="bold">
+	</TextView>
+	<TextView android:id="@+id/pointInfoMark"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="OCENA">
+		</TextView>
+		<Button android:id="@+id/PointInfoButtonBack"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="Back">
+		</Button>
+
+</LinearLayout>
+</ScrollView>

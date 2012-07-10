@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contains the id values for styles.xml -->
+<resources>
+    <item type="id" name="title_container" />
+    <item type="id" name="title_logo" />
+    <item type="id" name="title_text" />
+    <item type="id" name="title_btn_home" />
+    <item type="id" name="title_btn_my_location" />
+    <item type="id" name="title_btn_search" />
+
+	<item type="id" name="menu_button_1"/>
+	<item type="id" name="menu_button_2"/>
+	<item type="id" name="menu_button_3"/>
+	<item type="id" name="menu_button_4"/>
+	<item type="id" name="menu_button_5"/>
+	<item type="id" name="menu_button_6"/>
+	
+	<item type="id" name="submenu_button_1"/>
+	<item type="id" name="submenu_button_2"/>
+	<item type="id" name="submenu_button_3"/>
+	<item type="id" name="submenu_button_4"/>
+
+    <item type="id" name="dialog_discard_confirm" />
+    <item type="id" name="dialog_moderator" />
+    <item type="id" name="dialog_wave" />
+
+    <item type="id" name="blocks_ruler" />
+    <item type="id" name="blocks_now" />
+
+</resources>

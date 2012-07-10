@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	
+	<LinearLayout
+		android:id="@+id/title_bar_home"
+		android:layout_width="fill_parent"
+		android:layout_height="45dp"
+		android:orientation="horizontal"
+		android:background="@color/title_background">
+		<TextView style="@style/TitleBarText" />
+		<ImageView style="@style/TitleBarSeparator" />
+		
+		<ImageButton 
+            android:id="@+id/btn_title_home"
+			android:layout_width="45dp"
+			android:layout_height="fill_parent"
+			android:background="@drawable/title_button"
+            android:contentDescription="Search"
+            android:src="@drawable/ic_title_refresh"/>
+		<ImageView style="@style/TitleBarSeparator" />
+		<ImageButton
+			android:id="@+id/btn_title_refresh"
+			android:layout_width="45dp"
+			android:layout_height="fill_parent"
+			android:background="@drawable/title_button"
+			android:contentDescription="Refresh current location"
+			android:src="@drawable/ic_title_search"
+			android:onClick="onSearchClick"/>
+	</LinearLayout>
+	
+	<LinearLayout
+		android:id="@+id/view_home"
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:padding="6dp">
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1">
+			<Button
+				android:id="@+id/home_btn_friends"
+				android:layout_gravity="center_vertical"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:background="@null"
+				android:text="@string/home_btn_friends"
+				android:textSize="18sp"
+				android:textColor="@color/foreground1"
+				android:drawableTop="@drawable/home_btn_friends"
+				android:onClick="onFriendsClick"/>
+			<Button
+				android:id="@+id/home_btn_map"
+				android:layout_gravity="center_vertical"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:background="@null"
+				android:text="@string/home_btn_map"
+				android:textSize="18sp"
+				android:textColor="@color/foreground1"
+				android:drawableTop="@drawable/home_btn_map"
+				android:onClick="onMapClick"/>
+		</LinearLayout>
+		<LinearLayout 
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1">
+			<Button
+				android:id="@+id/home_btn_near_by"
+				android:layout_gravity="center_vertical"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:background="@null"
+				android:text="@string/home_btn_near_by"
+				android:textSize="18sp"
+				android:textColor="@color/foreground1"
+				android:drawableTop="@drawable/home_btn_schedule"
+				android:onClick="onNearBy" />
+			<Button
+				android:id="@+id/home_btn_about"
+				android:layout_gravity="center_vertical"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:background="@null"
+				android:text="@string/home_btn_about"
+				android:textSize="18sp"
+				android:textColor="@color/foreground1"
+				android:drawableTop="@drawable/home_btn_about"
+				android:onClick="onAboutClick" />
+		</LinearLayout>
+	</LinearLayout>
+	
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_height="20dp"
+		android:layout_width="fill_parent"
+		android:background="@color/title_background">
+		<View style="@style/TitleBarSpring"/>
+		<TextView
+			android:id="@+id/location_text"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:text="Waiting for location..."
+			android:textColor="@color/title_text"
+			android:textStyle="italic" />
+		<View style="@style/TitleBarSpring" />
+	</LinearLayout>
+</LinearLayout>

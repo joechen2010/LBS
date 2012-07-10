@@ -1,0 +1,51 @@
+20 Oct 2010:
+- Research on how to retrieve google map API
+Map key is:        	0Ey7Fy4ehoi4sfH-YDCPz2FaSjOrSt2lK3WhQdw
+Fingerprint is:    	D6:DB:33:23:77:22:9D:3F:7C:8D:FF:6A:03:B5:A0:A4
+
+
+<com.google.android.maps.MapView
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:apiKey="0Ey7Fy4ehoi4sfH-YDCPz2FaSjOrSt2lK3WhQdw"
+                 />
+
+03 Nov 2010:
+- Setup project site in google code
+- Download and install VirtualSVN Server to access Google's Subversion repository
+- Download and install TortoiseSVN to manage version control on local repo
+
+25 Jan 2011:
+- Research on icon design for Android
+- Come up with new icon package for application
+
+26 Jan 2011:
+- Add rule to Subversion to exclude .properties and .class file type out of repository
+
+10 Feb 2011:
+- Research on debugging Android application
+
+8 Mar 2011:
+- Design logo for app
+- Create log in screen activity
+- Create database
+- Research on 3 tiers database model
+
+9 Mar 2011:
+- Create AlertDialog about Internet connection state.
+
+11 Mar 2011:
+- Create an application server and make it work as a web service.
+
+17 Mar 2011:
+- Create a Google App web server to service updating locations and users creation.
+
+25 Mar 2011:
+- Integrate mobile app and server (logging in function added)
+
+27 Mar 2011:
+- Handles POST request from the client side
+
+31 Mar 2011:
+- Create activity for handling create new user
+- Deploy 2nd version of EasiloactionServer to Google App Engine

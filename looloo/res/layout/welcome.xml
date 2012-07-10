@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_alignParentTop="true"
+	android:layout_alignParentLeft="true">
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/WelcomeLayout" android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<ImageView android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:src="@drawable/looloologo" android:padding="10px" />
+		<TextView android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Everything about people and places around you!"
+			android:textAlign="center" android:padding="5px">
+		</TextView>
+
+		<Button android:id="@+id/welcome_singin_button"
+			android:text="Sign In" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:padding="10px" />
+
+		<Button android:id="@+id/create_new_account_button"
+			android:text="Create New Account" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:padding="10px" />
+	</LinearLayout>
+</ScrollView>

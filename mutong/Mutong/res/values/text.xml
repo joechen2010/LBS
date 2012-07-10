@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="username">用户名:</string>
+	<string name="password">密 码:</string>
+	<string name="login">确 定</string> 
+  	<string name="reset">重 置</string> 
+  	<string name="blogname">博客名字:</string> 
+  	<string name="blogweb">博客地址:</string> 
+  	<string name="home">主页</string> 
+  	<string name="publish">发布</string> 
+  	<string name="change">更改</string> 
+  	<string name="more">更多</string> 
+  	<string name="post">发送</string> 
+  	<string name="ok">确认</string> 
+  	<string name="cancel">返回</string> 
+  	<string name="tag">标签</string> 
+  	<string name="warn">标签之间用英文逗号隔开</string> 
+  	<string name="blogtype">博客类型</string> 
+  	<string name="load">正在加载数据</string> 
+</resources>

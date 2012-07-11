@@ -25,7 +25,9 @@
 	if( !isset( $_SESSION['userID']) ){
 	      require_once('login.html'); 
 	}else{
-	      if($_SESSION['userID']->userInformation()->isAdministrator()){ //needed when a new admin is going to be created
+		  $loginUser = $_SESSION['userID']->userInformation();
+		  print_r($loginUser);
+	      if($loginUser['administrator']){ //needed when a new admin is going to be created
 		    require_once('action/newAdminAction.inc.php');
 	      }
 	      require_once('home.inc.php'); 

@@ -29,7 +29,8 @@ public class ffLocationMySQL implements ffLocationDBIface{
 	private ffLocationMySQL(){
 		try
         {
-        String url = "jdbc:mysql://localhost/test";
+        String url = "jdbc:mysql://localhost/test?useUnicode=true&characterEncoding=utf-8";
+        Class.forName("com.mysql.jdbc.Driver"); 
         connection = DriverManager.getConnection(url, "dac", "dac");
         connection.setAutoCommit(true);
         }catch (SQLException anException){
@@ -40,6 +41,7 @@ public class ffLocationMySQL implements ffLocationDBIface{
 	    }catch (java.lang.Exception anException){
 	        anException.printStackTrace();
 	    }
+		System.out.println("DB is avaiable ");
 	}
 	
 	@Override
@@ -144,11 +146,10 @@ public class ffLocationMySQL implements ffLocationDBIface{
 		try{
 			PreparedStatement selectSentence = null;
 			ResultSet resultSet = null;
-			selectSentence =
-	            connection.prepareStatement(
-"SELECT `ID` , `Nick` , `Password` , `Name` , `Surname` , `Email` , `Phone` , `Country` , `Address` , `Administrator`" +
-"FROM `user`" +
-"WHERE Nick LIKE ?");
+			String sql = "SELECT `ID` , `Nick` , `Password` , `Name` , `Surname` , `Email` , `Phone` , `Country` , `Address` , `Administrator`" +
+					"FROM `user`" +
+					"WHERE Nick LIKE ?";
+			selectSentence =            connection.prepareStatement(sql);
 			selectSentence.setString(1,nick);
 	        resultSet = selectSentence.executeQuery();
 	        if(!resultSet.next()) return null;

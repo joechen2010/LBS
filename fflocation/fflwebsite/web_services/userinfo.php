@@ -107,6 +107,7 @@
 	    }
 		
 	    public function isAdministrator() {
+			
 		  return $this->administrator;
 	    }
 		

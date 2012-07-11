@@ -2,7 +2,7 @@
       /**
 	Requires the files that needs so as to implement the functions.
       */
-      require_once('/usr/share/php/nusoap/nusoap.php'); // include the SOAP classes
+      require_once('nusoap/lib/nusoap.php'); // include the SOAP classes
       require_once('auth.php');
       require_once('userinfo.php');
       require_once('position.php');
@@ -16,7 +16,7 @@
 
       */
       class ToServer{
-	    private $wsdl='http://localhost:8080/fflServer/wsdl/FFLocationAPI.wsdl'; // define path to server application
+	    private $wsdl='http://localhost:8080/fflServer/services/FFLocationAPI?wsdl'; // define path to server application
 	    private $auth = null;
 	    private $userInfo= null;
 	    public function loginWP($nick,$password) {
@@ -26,10 +26,12 @@
 		  $features = array( 'classmap' => $classmap);		  
 		  try{
 			$client = new soapclient($this->wsdl,$features);
+			
 			$param=array('nick' => $nick, 'pw' => $password);
-			$response = $client->loginWP($param);
-			if($response->loginWPReturn != null) 
-			      $this->auth = $response->loginWPReturn;
+			$response = $client->call('loginWP', $param, 'http://soap.amazon.com', 'http://soap.amazon.com');//$client->loginWP($param);
+			//print_r($response);
+			if($response['loginWPReturn'] != null) 
+			      $this->auth = $response['loginWPReturn'];
 			else
 			      return 'Wrong combination of password and nickname!';
 		  }
@@ -52,8 +54,8 @@
 		  try{
 			$client = new soapclient($this->wsdl,$features);  //creation of client object
 			$param=array('nick' => $nick);
-			$response = $client->exists($param); // call to the service
-			return $response->existsReturn;
+			$response = $client->call('exists', $param, 'http://soap.amazon.com', 'http://soap.amazon.com');//$client->exists($param); // call to the service
+			return $response['existsReturn'];
 		  }
 		  catch (SoapFault $fault) {  
 			return;
@@ -61,7 +63,7 @@
 	    }
 
 	    public function userInformation(){
-		  if($this->auth == null) throw new Exception("Not logged");
+		 // if($this->auth == null) throw new Exception("Not logged");
 		  if($this->userInfo == null){
 			$a = $this->auth;
 			$classmap = array('Auth' => 'Auth','UserInfo' => 'UserInfo', 'Position' => 'Position');
@@ -69,8 +71,12 @@
 			try{
 			      $client = new soapclient($this->wsdl,$features);  
 			      $param=array('a' => $a);
-			      $response = $client->myUser($param);
-			      $this->userInfo = $response->myUserReturn;
+			      $response = $client->call('myUser', $param, 'http://soap.amazon.com', 'http://soap.amazon.com');//$client->myUser($param);
+			      //print_r($response);
+				  //print_r(($response->myUserReturn).',,,,,,,,,,,,,,,,,,,,,,,,');
+				  //print_r(($response['myUserReturn']).'>>>>>>>>>>>>>>>>>>');
+				  $this->userInfo = $response['myUserReturn'];
+				  
 			}
 			catch (SoapFault $fault) {  
 			      return;
@@ -87,14 +93,14 @@
 		  try{
 			$client = new soapclient($this->wsdl,$features);  
 			$param=array('a' => $a, 'id' => $id, 'c' => $c);
-			$response = $client->getPositions($param);
-			if( !isset($response->getPositionsReturn) or $response->getPositionsReturn == null ){
+			$response = $client->call('getPositions', $param, 'http://soap.amazon.com', 'http://soap.amazon.com');//$client->getPositions($param);
+			if( !isset($response['getPositionsReturn']) or $response['getPositionsReturn'] == null ){
 			      return null;
 			}
-			else if( is_array($response->getPositionsReturn) )
-			      return $response->getPositionsReturn;
+			else if( is_array($response['getPositionsReturn']) )
+			      return $response['getPositionsReturn'];
 			else
-			      return array($response->getPositionsReturn);
+			      return array($response['getPositionsReturn']);
 		  }
 		  catch (SoapFault $fault) {  
 			return;
@@ -109,14 +115,14 @@
 		  try{
 			$client = new soapclient($this->wsdl,$features);  
 			$param=array('a' => $a, 'count' => $count, 'page' => $page);
-			$response = $client->getFriendsPage($param);
-			if( !isset($response->getFriendsPageReturn) or $response->getFriendsPageReturn == null ){
+			$response = $client->call('getFriendsPage', $param, 'http://soap.amazon.com', 'http://soap.amazon.com');//$client->getFriendsPage($param);
+			if( !isset($response['getFriendsPageReturn']) or $response['getFriendsPageReturn'] == null ){
 			      return null;
 			}
-			else if( is_array($response->getFriendsPageReturn) )
-			      return $response->getFriendsPageReturn;
+			else if( is_array($response['getFriendsPageReturn']) )
+			      return $response['getFriendsPageReturn'];
 			else
-			      return array($response->getFriendsPageReturn);
+			      return array($response['getFriendsPageReturn']);
 		  }
 		  catch (SoapFault $fault) {  
 			return;
@@ -131,14 +137,14 @@
 		  try{
 			$client = new soapclient($this->wsdl,$features);  
 			$param=array('a' => $a, 'count' => $count, 'page' => $page);			
-			$response = $client->getUsers($param);
-			if( !isset($response->getUsersReturn) or $response->getUsersReturn == null ){
+			$response = $client->call('getUsers', $param, 'http://soap.amazon.com', 'http://soap.amazon.com');//$client->getUsers($param);
+			if( !isset($response['getUsersReturn']) or $response['getUsersReturn'] == null ){
 			      return null;
 			}
-			else if( is_array($response->getUsersReturn) )
-			      return $response->getUsersReturn;
+			else if( is_array($response['getUsersReturn']) )
+			      return $response['getUsersReturn'];
 			else
-			      return array($response->getUsersReturn);
+			      return array($response['getUsersReturn']);
 		  }
 		  catch (SoapFault $fault) {  
 			return;
@@ -152,9 +158,9 @@
 		  try{
 			$client = new soapclient($this->wsdl,$features);  
 			$param=array('ui' => $ui, 'pw' => $pw);
-			$response = $client->newUser($param);
+			$response = $client->call('newUser', $param, 'http://soap.amazon.com', 'http://soap.amazon.com');//$client->newUser($param);
 			if($response != null) 
-				$this->auth = $response->newUserReturn;
+				$this->auth = $response['newUserReturn'];
 		  }
 		  catch (SoapFault $fault) {  
 			return;
@@ -170,9 +176,9 @@
 		  try{
 			$client = new soapclient($this->wsdl,$features);  
 			$param=array('a' => $a, 'ui' => $ui, 'pw' => $pw);
-			$response = $client->newAdmin($param);
+			$response = $client->call('newAdmin', $param, 'http://soap.amazon.com', 'http://soap.amazon.com');//$client->newAdmin($param);
 			if($response != null){ 
-			      return $response->newAdminReturn; 
+			      return $response['newAdminReturn']; 
 			}
 		  }
 		  catch (SoapFault $fault) {  
@@ -188,14 +194,14 @@
 		  try{
 			$client = new soapclient($this->wsdl,$features);  
 			$param=array('a' => $a,'nick'=>$nick,'name'=>$name,'surname'=>$surname,'country'=>$country);
-			$response = $client->searchFriend($param);
-			if( !isset($response->searchFriendReturn) or $response->searchFriendReturn == null ){
+			$response = $client->call('searchFriend', $param, 'http://soap.amazon.com', 'http://soap.amazon.com');//$client->searchFriend($param);
+			if( !isset($response['searchFriendReturn']) or $response['searchFriendReturn'] == null ){
 			      return null;
 			}
-			else if( is_array($response->searchFriendReturn)){
-			      return $response->searchFriendReturn;
+			else if( is_array($response['searchFriendReturn'])){
+			      return $response['searchFriendReturn'];
 			}else{
-			      return array($response->searchFriendReturn);
+			      return array($response['searchFriendReturn']);
 			}
 		  }
 		  catch (SoapFault $fault) {  
@@ -212,9 +218,9 @@
 		  try{
 			$client = new soapclient($this->wsdl,$features);  
 			$param=array('a' => $a, 'ui' => $ui, 'pw' => $pw);
-			$response = $client->changeUser($param);
+			$response = $client->call('changeUser', $param, 'http://soap.amazon.com', 'http://soap.amazon.com');//$client->changeUser($param);
 			$this->userInfo=null;
-			return $response->changeUserReturn;
+			return $response['changeUserReturn'];
 		  }
 		  catch (SoapFault $fault) {  
 			return;
@@ -229,8 +235,8 @@
 		  try{
 			$client = new soapclient($this->wsdl,$features);  
 			$param=array('a' => $a, 'id' => $id);
-			$response = $client->delUser($param);
-			return $response->delUserReturn;
+			$response = $client->call('delUser', $param, 'http://soap.amazon.com', 'http://soap.amazon.com');//$client->delUser($param);
+			return $response['delUserReturn'];
 		  }
 		  catch (SoapFault $fault) {  
 			return;

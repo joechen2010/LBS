@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu
-  xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:title="@string/refresh_placeinfo" android:id="@+id/refresh_placeinfo"/>
-  <item android:title="@string/homepage" android:id="@+id/homepage"/>
-  <item android:title="@string/logout" android:id="@+id/logout"/>
-  <item android:title="@string/exit_program" android:id="@+id/exit_program" />
-</menu>

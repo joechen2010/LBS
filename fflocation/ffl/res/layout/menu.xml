@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+		<item android:id="@+id/find_friend" android:title="Find a friend" />
+		<item android:id="@+id/create_comment" android:title="New comment" />
+		<item android:id="@+id/friend_requests" android:title="Friend requests" />
+		<item android:id="@+id/modify_personal" android:title="Modify" />	
+		<item android:id="@+id/take_photo" android:title="Photo" />	
+		<item android:id="@+id/exit" android:title="Logout" />
+</menu>

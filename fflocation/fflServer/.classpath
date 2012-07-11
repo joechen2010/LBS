@@ -8,14 +8,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/home/aitor/Escritorio/Proyect/android-sdk-linux_x86/platforms/android-8/android.jar" sourcepath="/home/aitor/Escritorio/Proyect/android-sdk-linux_x86/platforms/android-8/sources">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/home/aitor/Escritorio/Proyect/android-sdk-linux_x86/docs/reference"/>
-		</attributes>
-		<accessrules>
-			<accessrule kind="nonaccessible" pattern="com/android/internal/**"/>
-		</accessrules>
-	</classpathentry>
-	<classpathentry kind="lib" path="/fflandroid/RequiredLibraries/ksoap2-android-assembly-2.5.1-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="/ffl/RequiredLibraries/FFLServerModel.jar"/>
+	<classpathentry kind="lib" path="/ffl/RequiredLibraries/ksoap2-android-assembly-2.5.1-jar-with-dependencies.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

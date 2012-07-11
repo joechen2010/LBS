@@ -29,8 +29,8 @@ public class ffLocationMySQL implements ffLocationDBIface{
 	private ffLocationMySQL(){
 		try
         {
-        String url = "jdbc:mysql://localhost/fflocation";
-        connection = DriverManager.getConnection(url, "fflocation", "fflocation");
+        String url = "jdbc:mysql://localhost/test";
+        connection = DriverManager.getConnection(url, "dac", "dac");
         connection.setAutoCommit(true);
         }catch (SQLException anException){
 	        while (anException != null){
@@ -49,7 +49,7 @@ public class ffLocationMySQL implements ffLocationDBIface{
 		ResultSet resultSet = null;
 		try{
 			insertSentence = connection.prepareStatement(
-					"INSERT INTO `fflocation`.`user` " +
+					"INSERT INTO `test`.`user` " +
 					"(`ID`, `Nick`, `Password`, `Name`, `Surname`, `Email`, " +
 					"`Phone`, `Country`, `Address`, `Administrator`) " +
 					"VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
@@ -81,7 +81,7 @@ public class ffLocationMySQL implements ffLocationDBIface{
 		PreparedStatement updateSentence = null;
 		try{
 			updateSentence = connection.prepareStatement(
-					"UPDATE `fflocation`.`user` SET" +
+					"UPDATE `test`.`user` SET" +
 					"`Nick` = ?, " +
 					"`Password` = ?, " +
 					"`Name` = ?, " +
@@ -331,7 +331,7 @@ public class ffLocationMySQL implements ffLocationDBIface{
 		PreparedStatement deleteSentence = null;
 		try{
 			deleteSentence = connection.prepareStatement(
-					 "DELETE FROM `fflocation`.`user` " +
+					 "DELETE FROM `test`.`user` " +
 					 "WHERE ID=?;");
 			deleteSentence.setInt(1, id);
             deleteSentence.executeUpdate();			
@@ -356,7 +356,7 @@ public class ffLocationMySQL implements ffLocationDBIface{
 		PreparedStatement insertSentence = null;
 		try{
 			insertSentence = connection.prepareStatement(
-					 "INSERT INTO `fflocation`.`friend` (`IDUser1`, `IDUser2`)" +
+					 "INSERT INTO `test`.`friend` (`IDUser1`, `IDUser2`)" +
 					 "VALUES ( ?, ?);");
 			insertSentence.setInt(1, id1);
 			insertSentence.setInt(2, id2);
@@ -377,7 +377,7 @@ public class ffLocationMySQL implements ffLocationDBIface{
 			not.getPosition().setDate(new Date().toString());
 		try{
 			insertSentence = connection.prepareStatement(
-					 " INSERT INTO `fflocation`.`note` "+
+					 " INSERT INTO `test`.`note` "+
 					 "( `ID` ,`Note` ,`IDUser` ,`DateTime` ,`Latitude` ,`Longitude`) " +
 					 "VALUES (NULL, ?, ?, NOW(), ?, ?)");
 			insertSentence.setString(1, not.getNote());
@@ -402,7 +402,7 @@ public class ffLocationMySQL implements ffLocationDBIface{
 		PreparedStatement insertSentence = null;
 		try{
 			insertSentence = connection.prepareStatement(
-					 "INSERT INTO `fflocation`.`frequest` (`ID1`, `ID2`)" +
+					 "INSERT INTO `test`.`frequest` (`ID1`, `ID2`)" +
 					 "VALUES ( ?, ?);");
 			insertSentence.setInt(1, u1);
 			insertSentence.setInt(2, u2);
@@ -458,7 +458,7 @@ public class ffLocationMySQL implements ffLocationDBIface{
 		PreparedStatement deleteSentence = null;
 		try{
 			deleteSentence = connection.prepareStatement(
-					 "DELETE FROM `fflocation`.`frequest` " +
+					 "DELETE FROM `test`.`frequest` " +
 					 "WHERE ID1=? AND ID2=?;");
 			deleteSentence.setInt(1, u1);
 			deleteSentence.setInt(2, u2);
@@ -502,7 +502,7 @@ public class ffLocationMySQL implements ffLocationDBIface{
 		PreparedStatement insertSentence = null;
 		try{
 			insertSentence = connection.prepareStatement(
-					 "INSERT INTO `fflocation`.`history` (`ID`, `When`, `Latitude`, `Longitude`) VALUES (" +
+					 "INSERT INTO `test`.`history` (`ID`, `When`, `Latitude`, `Longitude`) VALUES (" +
 					 "?, NOW(), ?, ?);");
 			insertSentence.setInt(1,userID);
 			insertSentence.setFloat(2,lat);
@@ -577,7 +577,7 @@ public class ffLocationMySQL implements ffLocationDBIface{
 		PreparedStatement insertSentence = null;
 		try{
 			insertSentence = connection.prepareStatement(
-					"INSERT INTO `fflocation`.`photo` " +
+					"INSERT INTO `test`.`photo` " +
 					"(`IDNote`, `Photo`) " +
 					"VALUES (?, ?);");
 			insertSentence.setInt(1, noteID);
@@ -595,7 +595,7 @@ public class ffLocationMySQL implements ffLocationDBIface{
 		PreparedStatement deleteSentence = null;
 		try{
 			deleteSentence = connection.prepareStatement(
-					 "DELETE FROM `fflocation`.`user` " +
+					 "DELETE FROM `test`.`user` " +
 					 "WHERE ID=?;");
 			deleteSentence.setInt(1, id);
             deleteSentence.executeUpdate();			

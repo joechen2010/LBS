@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="Person">
+	<resultMap id="PersonMapper" type="Person">
+		<id property="ID" column="id" />
+		<result property="lastPersonalLocation" column="lastPersonalLocation" />
+		<association property="account" column="accountId" javaType="Account" select="cn.edu.nju.software.gof.entity.Account"></association>
+		<association property="profile" column="profileId" javaType="Profile" select="cn.edu.nju.software.gof.entity.Profile"></association>
+	</resultMap>
+	
+	<select id="findById" resultMap="PersonMapper"
+		parameterType="Long">
+		select u.* from Person u where u.id=#{id} 
+    </select>
+    
+	<select id="findByName" resultMap="PersonMapper"
+		parameterType="String">
+		select * from Person where userName=#{name} and deleted != 1
+    </select>
+    
+ 
+	<insert id="insert" parameterType="Person">
+		insert into Person (id, accountId, profileId) values (#{id}, #{accountId}, #{profileId})
+ 	</insert>
+
+      
+</mapper> 

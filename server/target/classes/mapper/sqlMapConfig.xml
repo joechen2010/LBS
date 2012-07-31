@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
+  "http://ibatis.apache.org/dtd/ibatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="true" />
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="multipleResultSetsEnabled" value="true" />
+		<setting name="useColumnLabel" value="true" />
+		<setting name="useGeneratedKeys" value="false" />
+		<setting name="defaultExecutorType" value="REUSE" />
+		<setting name="defaultStatementTimeout" value="25000" />
+	</settings>
+
+	<typeAliases>
+		<typeAlias alias="Account" type="cn.edu.nju.software.gof.entity.Account" />
+		<typeAlias alias="Person" type="cn.edu.nju.software.gof.entity.Person" />
+		<typeAlias alias="Profile" type="cn.edu.nju.software.gof.entity.Profile" />
+		<typeAlias alias="RichMan" type="cn.edu.nju.software.gof.entity.RichMan" />
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="mapper/AccountMapper.xml" />
+		<mapper resource="mapper/PersonMapper.xml" />
+		<mapper resource="mapper/ProfileMapper.xml" />
+		<mapper resource="mapper/RichManMapper.xml" />
+	</mappers>
+</configuration>
+
+   

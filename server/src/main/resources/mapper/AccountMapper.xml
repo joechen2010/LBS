@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="Account">
+	<resultMap id="AccountMapper" type="Account">
+		<id property="ID" column="id" />
+		<result property="userName" column="userName" />
+		<result property="password" column="password" />
+		<result property="sessionID" column="sessionID" />
+		<association property="owner" column="person_id" javaType="Person" select="cn.edu.nju.software.gof.entity.Person"></association>
+	</resultMap>
+	
+	<select id="findById" resultMap="AccountMapper"
+		parameterType="Long">
+		select u.* from Account u where u.id=#{id} and deleted != 1
+    </select>
+    
+	<select id="findByUserName" resultMap="AccountMapper"
+		parameterType="String">
+		select * from Account where userName=#{name} and deleted != 1
+    </select>
+  
+  <insert id="insert" parameterType="Profile">
+		insert into Profile (id, userName, password,sessionID,person_id) values (#{ID}, #{userName}, #{password},#{owner.iD})
+ 	</insert>
+</mapper> 

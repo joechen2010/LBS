@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="Profile">
+    	<resultMap id="ProfileMapper" type="Profile">
+		<id property="ID" column="id" />
+		<result property="realName" column="realName" />
+		<result property="birthday" column="birthday" />
+		<result property="school" column="school" />
+		<result property="currentPlace" column="currentPlace" />
+		<association property="owner" column="person_id" javaType="Person" select="cn.edu.nju.software.gof.entity.Person"></association>
+	</resultMap>
+	
+	<select id="findById" resultMap="ProfileMapper"
+		parameterType="Long">
+		select u.* from Profile u where u.id=#{id} 
+    </select>
+    
+ 
+	<insert id="insert" parameterType="Profile">
+		insert into Profile (id, realName, birthday,school,currentPlace,person_id) values (#{ID}, #{realName}, #{birthday},#{currentPlace},#{owner.ID})
+ 	</insert>
+
+      
+</mapper> 

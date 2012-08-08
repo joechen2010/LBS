@@ -1,5 +1,7 @@
 package cn.edu.nju.software.gof.activity;
 
+import cn.edu.nju.software.gof.beans.User;
+import cn.edu.nju.software.gof.gps.GpsDetector;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +19,8 @@ public class WelcomeActivity extends Activity{
         requestWindowFeature(Window.FEATURE_NO_TITLE); //隐藏标题
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); 
         setContentView(R.layout.splash); 
+        // setup mobile
+        GpsDetector.getInstance(this.getBaseContext()).setupMobile();
         new Handler().postDelayed(new Runnable(){ 
   
          @Override 

@@ -21,8 +21,9 @@ public class UserRegisterProcessor implements RequestProcessor {
 		String school = request.getParameter(ServletParam.RequestParam.School);
 		String place = request.getParameter(ServletParam.RequestParam.Place);
 		String birthday = request.getParameter(ServletParam.RequestParam.Birthday);
+		String mobile = request.getParameter(ServletParam.RequestParam.MOBILE);
 
-		ProfileInfo info = new ProfileInfo(realName, school, place, birthday);
+		ProfileInfo info = new ProfileInfo(realName, school, place, birthday, mobile);
 		AccountUtilities utilites = new AccountUtilities();
 		boolean succ = utilites.register(userName, password, info);
 

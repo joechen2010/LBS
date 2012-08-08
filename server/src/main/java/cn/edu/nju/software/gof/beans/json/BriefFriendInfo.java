@@ -3,7 +3,7 @@ package cn.edu.nju.software.gof.beans.json;
 
 public class BriefFriendInfo extends JSONAble {
 
-	private String ID;
+	private Long id;
 	private String userName;
 	private String realName;
 
@@ -12,19 +12,20 @@ public class BriefFriendInfo extends JSONAble {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BriefFriendInfo(String iD, String userName, String realName) {
+	public BriefFriendInfo(Long id, String userName, String realName) {
 		super();
-		ID = iD;
+		this.id = id;
 		this.userName = userName;
 		this.realName = realName;
 	}
 
-	public String getID() {
-		return ID;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setID(String iD) {
-		ID = iD;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getUserName() {

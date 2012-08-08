@@ -19,7 +19,7 @@ public class FriendProfileGetterProcessor implements RequestProcessor {
 		String friendID = request.getParameter(ServletParam.RequestParam.FriendID);
 
 		FriendUtilities utilities = new FriendUtilities();
-		ProfileInfo info = utilities.getFriendProfile(sessionID, friendID);
+		ProfileInfo info = utilities.getFriendProfile(sessionID, Long.valueOf(friendID));
 
 		if (info != null) {
 			ResponseUtilities.writeMessage(response, info.toJSONString(),

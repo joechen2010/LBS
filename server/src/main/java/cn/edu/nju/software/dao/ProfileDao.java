@@ -1,5 +1,7 @@
 package cn.edu.nju.software.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Component;
 
@@ -13,5 +15,8 @@ public class ProfileDao extends SqlSessionDaoSupport {
         getSqlSession().insert("Profile.insert", profile);
     }
 
+	public List<Profile> findProfiles(Profile profile){
+		return (List<Profile>) getSqlSession().selectList("Profile.find", profile);
+	}
 
 }

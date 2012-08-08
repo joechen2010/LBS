@@ -10,18 +10,20 @@ public class PersonInformationBean extends JSONTarget{
 	private String birthday;
 	private String school;
 	private String place;
+	private String mobile;
 	
 	public PersonInformationBean() {
 		super();
 	}
 	
 	public PersonInformationBean(String realName,
-			String birthday, String school, String place) {
+			String birthday, String school, String place,String mobile) {
 		super();
 		this.setRealName(realName);
 		this.birthday = birthday;
 		this.setSchool(school);
 		this.setPlace(place);
+		this.setMobile(mobile);
 	}
 
 	public void setRealName(String realName) {
@@ -55,4 +57,14 @@ public class PersonInformationBean extends JSONTarget{
 	public String getPlace() {
 		return place;
 	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	
+	
 }

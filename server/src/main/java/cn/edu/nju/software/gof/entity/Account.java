@@ -6,7 +6,7 @@ public class Account implements Serializable {
 	
     private static final long serialVersionUID = -6832688344476748908L;
 
-	private Long ID;
+	private Long id;
 
 	private Person owner;
 
@@ -14,27 +14,36 @@ public class Account implements Serializable {
 
 	private String password;
 
-	private String sessionID;
+	private String sessionId;
 
 	public Account() {
 		super();
 	}
 
 	public Account(Person owner, String userName, String password,
-			String sessionID) {
+			String sessionId) {
 		super();
 		this.owner = owner;
 		this.userName = userName;
 		this.password = password;
-		this.sessionID = sessionID;
+		this.sessionId = sessionId;
 	}
 
-	public Long getID() {
-		return ID;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setID(Long iD) {
-		ID = iD;
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getSessionId() {
+		return sessionId;
+	}
+
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
 	}
 
 	public Person getOwner() {
@@ -61,11 +70,4 @@ public class Account implements Serializable {
 		this.password = password;
 	}
 
-	public String getSessionID() {
-		return sessionID;
-	}
-
-	public void setSessionID(String sessionID) {
-		this.sessionID = sessionID;
-	}
 }

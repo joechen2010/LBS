@@ -17,7 +17,7 @@ public class GetPlaceImageProcessor implements RequestProcessor {
 		String placeID = request.getParameter(ServletParam.RequestParam.PlaceID);
 
 		PlaceUtilities utilities = new PlaceUtilities();
-		byte[] image = utilities.getPlaceImage(sessionID, placeID);
+		byte[] image = utilities.getPlaceImage(sessionID, Long.valueOf(placeID));
 
 		if (image != null) {
 			ResponseUtilities.writeImage(response, image);

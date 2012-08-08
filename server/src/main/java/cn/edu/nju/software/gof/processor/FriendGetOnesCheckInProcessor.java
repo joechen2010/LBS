@@ -21,10 +21,8 @@ public class FriendGetOnesCheckInProcessor implements RequestProcessor {
 
 		String sessionID = request.getParameter(ServletParam.RequestParam.SessionID);
 		String friendID = request.getParameter(ServletParam.RequestParam.FriendID);
-
-		CheckInUtilities utilities = new CheckInUtilities();
-
-		List<CheckInfo> list = utilities.getFriendCheckIns(sessionID, friendID);
+		CheckInUtilities checkInUtilities = new CheckInUtilities();
+		List<CheckInfo> list = checkInUtilities.getFriendCheckIns(sessionID, Long.valueOf(friendID));
 		JSONObject json = new JSONObject();
 		try {
 			json.put(ServletParam.JsonParam.ListName, list);

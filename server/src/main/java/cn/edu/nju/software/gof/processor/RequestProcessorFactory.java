@@ -47,6 +47,7 @@ public class RequestProcessorFactory {
 		processors.put(ServletParam.GetSubPlaces, new GetSubPlacesProcessor());
 		processors.put(ServletParam.GetPersonlCheckIn, new GetPlaceCheckInProcessor());
 		processors.put(ServletParam.GetPlaceImage, new GetPlaceImageProcessor());
+		processors.put(ServletParam.USERLOCATION, new UserLocationProcessor());
 	}
 
 	public static RequestProcessor getProcessor(String processorName) {

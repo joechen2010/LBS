@@ -1,20 +1,21 @@
 package cn.edu.nju.software.gof.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.io.Serializable;
 
-import com.google.appengine.api.datastore.Key;
 
-public class CheckInCounter {
+public class CheckInCounter implements Serializable {
+	
+    private static final long serialVersionUID = -6832688364476748908L;
 
-	private Long ID;
+	private Long id;
 
-	private Long ownerID;
+	private Long ownerId;
 
-	private Long placeID;
+	private Long placeId;
+	
+	private Person owner;
+	
+	private Place place;
 
 	private Integer counter;
 
@@ -23,36 +24,35 @@ public class CheckInCounter {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CheckInCounter(Long ownerID, Long placeID, Integer counter) {
+	public CheckInCounter(Long ownerId, Long placeId, Integer counter) {
 		super();
-		this.ownerID = ownerID;
-		this.placeID = placeID;
+		this.ownerId = ownerId;
+		this.placeId = placeId;
 		this.counter = counter;
 	}
 
-	public Long getID() {
-		return ID;
+	public Long getId() {
+		return id;
 	}
 
-	public void setID(Long iD) {
-		ID = iD;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Long getOwnerID() {
-		return ownerID;
+	public Long getOwnerId() {
+		return ownerId;
 	}
 
-	public void setOwnerID(Long ownerID) {
-		this.ownerID = ownerID;
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
 	}
 
-	public Long getPlaceID() {
-		return placeID;
+	public Long getPlaceId() {
+		return placeId;
 	}
-	
 
-	public void setPlaceID(Long placeID) {
-		this.placeID = placeID;
+	public void setPlaceId(Long placeId) {
+		this.placeId = placeId;
 	}
 
 	public Integer getCounter() {
@@ -62,5 +62,22 @@ public class CheckInCounter {
 	public void setCounter(Integer counter) {
 		this.counter = counter;
 	}
+
+	public Person getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Person owner) {
+		this.owner = owner;
+	}
+
+	public Place getPlace() {
+		return place;
+	}
+
+	public void setPlace(Place place) {
+		this.place = place;
+	}
+	
 	
 }

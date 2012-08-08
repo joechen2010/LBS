@@ -16,7 +16,7 @@ public class UserLoginProcessor implements RequestProcessor {
 	public void process(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		
-//debug url : http://localhost:9000/api?processor_name=login&user_name=joechen&password=123456
+//debug url : http://localhost:9000/api?processor_name=login&user_name=joechen&password=123456&state=0
 		String userName = request.getParameter(ServletParam.RequestParam.UserName);
 		String password = request.getParameter(ServletParam.RequestParam.Password);
 		int state = -1;

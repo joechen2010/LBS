@@ -1,0 +1,61 @@
+    <?xml version="1.0" encoding="UTF-8"?>  
+    <beans xmlns="http://www.springframework.org/schema/beans"  
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+        xmlns:aop="http://www.springframework.org/schema/aop"  
+        xmlns:tx="http://www.springframework.org/schema/tx"  
+        xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd  
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd  
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">  
+        <bean   
+            class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>  
+          
+        <!-- JPA注解Bean后置处理器 -->  
+        <bean  
+            class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />  
+      
+        <!-- 利用Spring的实体管理器工厂来创建JPA实体管理器 -->  
+        <bean id="entityManagerFactory"  
+            class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">  
+            <property name="dataSource" ref="dataSource" />  
+            <property name="jpaVendorAdapter">  
+                <bean  
+                    class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">  
+                    <property name="database" value="MYSQL" />  
+                    <property name="showSql" value="true" />  
+                    <!-- <property name="generateDdl" value="true" /> -->  
+                </bean>  
+            </property>  
+        </bean>  
+      
+        <bean id="dataSource"  
+            class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+            <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
+            <property name="url" value="jdbc:mysql://localhost/test?useUnicode=true&amp;characterEncoding=UTF-8" />  
+            <property name="username" value="root" />  
+            <property name="password" value="root" />  
+        </bean>  
+          
+        <!--       
+        <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">   
+            <property name="jndiName">  
+                <value>java:comp/env/jdbc/jpa_ds</value>  
+            </property>   
+        </bean>  
+         -->  
+      
+        <!-- 声明一个Spring提供的JPA事务管理器，传入的参数是Spring中的实体管理器工厂 -->   
+        <bean id="transactionManager"  
+            class="org.springframework.orm.jpa.JpaTransactionManager">  
+            <property name="entityManagerFactory" ref="entityManagerFactory" />  
+        </bean>  
+      
+        <!-- 开启Spring提供的基于注解的声明式事务管理 -->  
+        <tx:annotation-driven transaction-manager="transactionManager" />  
+      
+        <!-- 直接使用Spring的 JpaTemplate -->  
+        <bean id="jpaTemplate" class="org.springframework.orm.jpa.JpaTemplate">  
+            <property name="entityManagerFactory" ref="entityManagerFactory" />  
+        </bean>  
+      
+    </beans>  

@@ -4,10 +4,13 @@
     "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="Person">
 	<resultMap id="PersonMapper" type="Person">
-		<id property="ID" column="id" />
+		<id property="id" column="id" />
 		<result property="lastPersonalLocation" column="lastPersonalLocation" />
-		<association property="account" column="accountId" javaType="Account" select="cn.edu.nju.software.gof.entity.Account"></association>
-		<association property="profile" column="profileId" javaType="Profile" select="cn.edu.nju.software.gof.entity.Profile"></association>
+		<result property="friendIds" column="friendIds" />
+		<result property="topPlaceIds" column="topPlaceIds" />
+		<result property="mobile" column="mobile" />
+		<association property="account" column="accountId" javaType="Account" resultMap="Account.AccountMapper"></association>
+		<association property="profile" column="profileId" javaType="Profile" resultMap="Profile.ProfileMapper"></association>
 	</resultMap>
 	
 	<select id="findById" resultMap="PersonMapper"
@@ -22,7 +25,8 @@
     
  
 	<insert id="insert" parameterType="Person">
-		insert into Person (id, accountId, profileId) values (#{id}, #{accountId}, #{profileId})
+		insert into Person (id, accountId, profileId) values (#{id}, #{account.id}, #{profile.id})
+		<!-- insert into Person (id, profileId) values (#{id}, #{profile.id})-->
  	</insert>
 
       

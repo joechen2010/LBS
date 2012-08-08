@@ -15,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import cn.edu.nju.software.gof.beans.User;
 import cn.edu.nju.software.gof.intent.CommonIntents;
 import cn.edu.nju.software.gof.requests.AccountUtilities;
 

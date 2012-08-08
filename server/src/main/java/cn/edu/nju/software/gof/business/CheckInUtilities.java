@@ -4,11 +4,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
+import org.springframework.stereotype.Component;
 
 import cn.edu.nju.software.gof.beans.json.CheckInfo;
 import cn.edu.nju.software.gof.beans.json.PlaceCheckInfomationBean;
@@ -16,40 +12,32 @@ import cn.edu.nju.software.gof.entity.CheckIn;
 import cn.edu.nju.software.gof.entity.CheckInCounter;
 import cn.edu.nju.software.gof.entity.Person;
 import cn.edu.nju.software.gof.entity.PersonalLocation;
-import cn.edu.nju.software.gof.entity.EMF;
 import cn.edu.nju.software.gof.entity.Place;
 
-public class CheckInUtilities {
+@Component
+public class CheckInUtilities extends BaseUtilities{
 
-	public boolean updateLocation(String sessionID, double latitude,
-			double longitude) {
-		Key personID = null;
+	public boolean updateLocation(String sessionID, double latitude,double longitude) {
+		Long personID = null;
 		String placeName = null;
-		EntityManager em = EMF.getInstance().createEntityManager();
-		try {
-			Person person = CommonUtilities.getPersonBySessionID(sessionID, em);
-			if (person == null) {
-				return false;
+		Person person = accountManager.findBySessionId(sessionID).getOwner();
+		if (person == null) {
+			return false;
+		} else {
+			personID = person.getId();
+			String lastPersonalLocation = CommonUtilities.getPlaceNameByLL(latitude, longitude);
+			if (lastPersonalLocation != null) {
+				placeName = lastPersonalLocation;
+				person.setLastPersonalLocation(lastPersonalLocation);
 			} else {
-				personID = person.getID();
-				String lastPersonalLocation = CommonUtilities.getPlaceNameByLL(
-						latitude, longitude);
-				if (lastPersonalLocation != null) {
-					placeName = lastPersonalLocation;
-					person.setLastPersonalLocation(lastPersonalLocation);
-				} else {
-					placeName = "XXXX";
-				}
-
-				// Get current system time.
-				Date time = new Date();
-				// Construct checkIn entity.
-				PersonalLocation personalLocation = new PersonalLocation(
-						person.getID(), latitude, longitude, time);
-				em.persist(personalLocation);
+				placeName = "XXXX";
 			}
-		} finally {
-			em.close();
+			// Get current system time.
+			Date time = new Date();
+			// Construct checkIn entity.
+			PersonalLocation personalLocation = new PersonalLocation(person.getId(), latitude, longitude, time);
+			personalLocationManager.save(personalLocation);
+			person.setLastLocationId(personalLocation.getId());
 		}
 		SynchronizationUtilities utilities = new SynchronizationUtilities();
 		utilities.doSynchronization(personID, placeName);
@@ -57,148 +45,95 @@ public class CheckInUtilities {
 
 	}
 
-	public boolean checkInPlace(String sessionID, String string_PlaceID) {
-		Key placeID = null;
-		Key personID = null;
-		//
+	public boolean checkInPlace(String sessionID, Long placeID) {
+		Long personID = null;
 		// Add the check in to DB.
-		EntityManager em = EMF.getInstance().createEntityManager();
-		try {
-			Person person = CommonUtilities.getPersonBySessionID(sessionID, em);
-			if (person == null) {
-				return false;
-			} else {
-				personID = person.getID();
-				try {
-					placeID = KeyFactory.stringToKey(string_PlaceID);
-					CheckIn checkIn = new CheckIn(person.getID(), placeID,
-							new Date());
-					em.persist(checkIn);
-					//
-				} catch (IllegalArgumentException exception) {
-					return false;
-				}
-			}
-		} finally {
-			em.close();
+		Person person = accountManager.findBySessionId(sessionID).getOwner();
+		if (person == null) {
+			return false;
+		} else {
+			personID = person.getId();
+			CheckIn checkIn = new CheckIn(person.getId(), placeID, new Date());
+			checkInManager.save(checkIn);
 		}
 		//
 		// Increase the user's check in counter.
 		int currentCounter = 0;
-		em = EMF.getInstance().createEntityManager();
-		try {
-			Person person = em.find(Person.class, personID);
-			currentCounter = person.increaseCheckInTimes(placeID, em);
-		} finally {
-			em.close();
-		}
+		currentCounter = person.increaseCheckInTimes(placeID);
 		// Change the place's top user ID.
-		Key topUserID = null;
+		Long topUserID = null;
 		boolean topUserChanged = false;
-		em = EMF.getInstance().createEntityManager();
-		try {
-			Place place = em.find(Place.class, placeID);
-			place.increaseCheckInTimes();
-			//
-			Person topUser = place.getTopUser(em);
-			if (topUser != null) {
-				// The user is not the top user.
-				if (!topUser.getID().equals(personID)) {
-					topUserID = topUser.getID();
-					//
-					int topUserCounter = topUser.getCheckInTimes(placeID, em);
-					if (currentCounter > topUserCounter) {
-						place.setTopUserID(personID);
-						topUserChanged = true;
-					}
+		Place place = placeManager.findById(placeID);
+		place.increaseCheckInTimes();
+		Person topUser = place.getTopUser();
+		if (topUser != null) {
+			// The user is not the top user.
+			if (!topUser.getId().equals(personID)) {
+				topUserID = topUser.getId();
+				//
+				int topUserCounter = topUser.getCheckInTimes(placeID);
+				if (currentCounter > topUserCounter) {
+					place.setTopUserId(personID);
+					topUserChanged = true;
 				}
-			} else {
-				place.setTopUserID(personID);
-				topUserChanged = true;
 			}
-		} finally {
-			em.close();
+		} else {
+			place.setTopUserId(personID);
+			topUserChanged = true;
 		}
 		//
 		// Modify the topPlaceID list of each user.
 		if (topUserChanged) {
-			em = EMF.getInstance().createEntityManager();
-			try {
-				Person person = em.find(Person.class, personID);
-				Person topUser = null;
-				if (topUserID != null) {
-					topUser = em.find(Person.class, topUserID);
-				}
-				//
-				person.getTopPlaceIDs().add(placeID);
-				if (topUser != null) {
-					topUser.getTopPlaceIDs().remove(placeID);
-				}
-			} finally {
-				em.close();
+			topUser = null;
+			if (topUserID != null) {
+				topUser = personManager.findById(topUserID);
+			}
+			person.getTopPlaceIds().add(placeID);
+			if (topUser != null) {
+				topUser.getTopPlaceIds().remove(placeID);
 			}
 		}
 		//
 		// RichMan
-		RichManUtilities.adjustMoneyByCheckIn(placeID, personID);
+		richManUtilities.adjustMoneyByCheckIn(placeID, personID);
 		return true;
 	}
 
-	public List<CheckInfo> getFriendCheckIns(String sessionID,
-			String string_FriendID) {
-		EntityManager em = EMF.getInstance().createEntityManager();
-		try {
-			Person person = CommonUtilities.getPersonBySessionID(sessionID, em);
-			if (person == null) {
+	public List<CheckInfo> getFriendCheckIns(String sessionID,Long friendID) {
+		Person person = accountManager.findBySessionId(sessionID).getOwner();
+		if (person == null) {
+			return null;
+		} else {
+			Person friend = personManager.findById(friendID);
+			if (!CommonUtilities.beFriend(person, friend)) {
 				return null;
 			} else {
-				try {
-					Key friendID = KeyFactory.stringToKey(string_FriendID);
-					Person friend = em.find(Person.class, friendID);
-					if (!CommonUtilities.beFriend(person, friend, em)) {
-						return null;
-					} else {
-						return getCheckIns(person.getID(), em);
-					}
-				} catch (IllegalArgumentException exception) {
-					return null;
-				}
+				return getCheckIns(person.getId());
 			}
-		} finally {
-			em.close();
 		}
 	}
 
 	public List<CheckInfo> getPersonalCheckIns(String sessionID) {
-		EntityManager em = EMF.getInstance().createEntityManager();
-		try {
-			Person person = CommonUtilities.getPersonBySessionID(sessionID, em);
-			if (person == null) {
-				return null;
-			} else {
-				return getCheckIns(person.getID(), em);
-			}
-		} finally {
-			em.close();
+		Person person = accountManager.findBySessionId(sessionID).getOwner();
+		if (person == null) {
+			return null;
+		} else {
+			return getCheckIns(person.getId());
 		}
 	}
 
-	private List<CheckInfo> getCheckIns(Key ownerID, EntityManager em) {
-		String sqlCmd = "SELECT C FROM CheckInCounter AS C WHERE C.ownerID = :ownerID";
-		Query query = em.createQuery(sqlCmd);
-		query.setParameter("ownerID", ownerID);
-		@SuppressWarnings("unchecked")
-		List<CheckInCounter> counters = query.getResultList();
+	private List<CheckInfo> getCheckIns(Long ownerID) {
+		
+		List<CheckInCounter> counters = checkInCounterManager.findByOwerId(ownerID);
 		//
 		List<CheckInfo> results = new LinkedList<CheckInfo>();
 		//
 		for (CheckInCounter counter : counters) {
-			Place place = counter.getPlace(em);
-			Key placeID = place.getID();
+			Place place = counter.getPlace();
+			Long placeID = place.getId();
 			String placeName = place.getPlaceName();
 			int myCheckInTimes = counter.getCounter();
-			CheckInfo info = new CheckInfo(KeyFactory.keyToString(placeID),
-					placeName, myCheckInTimes);
+			CheckInfo info = new CheckInfo(placeID.toString(),placeName, myCheckInTimes);
 			results.add(info);
 		}
 		return results;

@@ -23,8 +23,7 @@ public class GetSubPlacesProcessor implements RequestProcessor {
 
 		PlaceUtilities utilities = new PlaceUtilities();
 
-		List<BriefPlaceInfo> places = utilities
-				.getSubPlaces(sessionID, placeID);
+		List<BriefPlaceInfo> places = utilities		.getSubPlaces(sessionID, Long.valueOf(placeID));
 
 		if (places != null) {
 			JSONObject json = new JSONObject();

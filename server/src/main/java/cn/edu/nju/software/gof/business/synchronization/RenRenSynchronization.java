@@ -3,36 +3,23 @@ package cn.edu.nju.software.gof.business.synchronization;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-
-import cn.edu.nju.software.gof.entity.EMF;
+import cn.edu.nju.software.gof.business.BaseUtilities;
 import cn.edu.nju.software.gof.entity.RenRen;
 
-import com.google.appengine.api.datastore.Key;
-
-public class RenRenSynchronization implements Synchronizationable {
+public class RenRenSynchronization extends BaseUtilities implements Synchronizationable{
 
 	@Override
-	public void synchronize(Key personID, String placeName) {
+	public void synchronize(Long personID, String placeName) {
 		String userName = null;
 		String password = null;
-		EntityManager em = EMF.getInstance().createEntityManager();
-		try {
-			String sqlCmd = "SELECT R FROM RenRen AS R WHERE R.ownerID = :ownerID";
-			Query query = em.createQuery(sqlCmd);
-			query.setParameter("ownerID", personID);
-			try {
-				RenRen renren = (RenRen) query.getSingleResult();
-				userName = renren.getUserName();
-				password = renren.getPassword();
-			} catch (Exception exception) {
-				System.out.println(exception);
-			}
-		} finally {
-			em.close();
-		}
+		RenRen r = new RenRen();
+		r.setOwnerId(personID);
+		List<RenRen> renrens = authAccessKeyManager.findRenRen(r);
+		RenRen renren = renrens.size() > 0 ? renrens.get(0) : null;
+		userName = renren.getUserName();
+		password = renren.getPassword();
 		if (userName != null && password != null) {
 			String message = "@ " + placeName + " --- By Mutong";
 			doSynchronize(userName, password, message);

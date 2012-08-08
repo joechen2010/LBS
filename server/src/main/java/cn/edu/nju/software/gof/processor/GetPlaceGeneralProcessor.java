@@ -18,7 +18,7 @@ public class GetPlaceGeneralProcessor implements RequestProcessor {
 		String placeID = request.getParameter(ServletParam.RequestParam.PlaceID);
 
 		PlaceUtilities utilities = new PlaceUtilities();
-		PlaceGeneral place = utilities.getPlaceGeneralInfo(sessionID, placeID);
+		PlaceGeneral place = utilities.getPlaceGeneralInfo(sessionID, Long.valueOf(placeID));
 		if (place != null) {
 			ResponseUtilities.writeMessage(response, place.toJSONString(),
 					ResponseUtilities.JSON);

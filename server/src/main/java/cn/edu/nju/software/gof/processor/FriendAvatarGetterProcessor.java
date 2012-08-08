@@ -18,7 +18,7 @@ public class FriendAvatarGetterProcessor implements RequestProcessor {
 		String friendID = request.getParameter(ServletParam.RequestParam.FriendID);
 
 		FriendUtilities utilities = new FriendUtilities();
-		byte[] image = utilities.getFriendAvatar(sessionID, friendID);
+		byte[] image = utilities.getFriendAvatar(sessionID, Long.valueOf(friendID));
 
 		ResponseUtilities.writeImage(response, image);
 	}

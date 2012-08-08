@@ -5,18 +5,20 @@ public class ProfileInfo extends JSONAble {
 	private String school;
 	private String place;
 	private String birthday;
+	private String mobile;
 
 	public ProfileInfo() {
 		super();
 	}
 
 	public ProfileInfo(String realName, String school, String place,
-			String birthday) {
+			String birthday,String mobile) {
 		super();
 		this.realName = realName;
 		this.school = school;
 		this.place = place;
 		this.birthday = birthday;
+		this.mobile = mobile;
 	}
 
 	public String getRealName() {
@@ -50,4 +52,14 @@ public class ProfileInfo extends JSONAble {
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	
+	
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="RenRen">
+	<resultMap id="RenRenMapper" type="RenRen">
+		<id property="id" column="id" />
+		<result property="userName" column="userName" />
+		<result property="password" column="password" />
+		<association property="owner" column="ownerId" javaType="Person" select="Person.findById"></association>
+	</resultMap>
+	
+	<select id="findById" resultMap="RenRenMapper"	parameterType="Long">
+		select u.* from RenRen u where u.id=#{id} and deleted != 1
+    </select>
+    
+	<select id="find" resultMap="java.util.List"	parameterType="RenRen">
+		select u.* from RenRen u where u.id=#{id} 
+		<if test="ownerId !=null and ownerId !='' ">
+	        and ownerId =#{ownerId}
+	     </if>
+	     <if test="userName !=null and userName !='' ">
+	        and userName =#{userName}
+	     </if>
+    </select>
+    
+  
+  <insert id="insert" parameterType="RenRen">
+		insert into RenRen (id, userName, password,ownerId) values (#{id}, #{userName}, #{password},#{ownerId})
+ 	</insert>
+</mapper> 

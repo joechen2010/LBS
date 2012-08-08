@@ -7,51 +7,17 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.Query;
+import org.springframework.stereotype.Component;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import cn.edu.nju.software.gof.entity.Account;
 import cn.edu.nju.software.gof.entity.Person;
-import cn.edu.nju.software.manager.AccountManager;
 
-import com.google.appengine.api.datastore.Key;
 import com.google.appengine.repackaged.org.json.JSONArray;
 import com.google.appengine.repackaged.org.json.JSONException;
 import com.google.appengine.repackaged.org.json.JSONObject;
 
+@Component
 public class CommonUtilities {
 	
-    @Autowired
-	private AccountManager accountManager;
-
-	public static Person getPersonBySessionID(String sessionID, EntityManager em) {
-		String sqlCmd = "SELECT A FROM Account AS A WHERE A.sessionID = :sessionID";
-		Query query = em.createQuery(sqlCmd);
-		query.setParameter("sessionID", sessionID);
-		try {
-			Account account = (Account) query.getSingleResult();
-			return account.getOwner();
-		} catch (NoResultException exception) {
-			return null;
-		}
-	}
-
-	public static Person getPersonByUserName(String userName, EntityManager em) {
-		
-		String sqlCmd = "SELECT A FROM Account AS A WHERE A.userName = :userName";
-		Query query = em.createQuery(sqlCmd);
-		query.setParameter("userName", userName);
-		try {
-			Account account = (Account) query.getSingleResult();
-			return account.getOwner();
-		} catch (NoResultException exception) {
-			return null;
-		}
-	}
-
 	/**
 	 * Get a human readable name of the given place which is decided by the
 	 * latitude and longitude of the place.
@@ -92,8 +58,8 @@ public class CommonUtilities {
 		return placeName;
 	}
 
-	public static boolean beFriend(Person one, Person another, EntityManager em) {
-		List<Key> friends = one.getFriendIDs();
-		return friends.contains(another.getID());
+	public static boolean beFriend(Person one, Person another) {
+		List<Long> friends = one.getFriendIds();
+		return friends.contains(another.getId());
 	}
 }

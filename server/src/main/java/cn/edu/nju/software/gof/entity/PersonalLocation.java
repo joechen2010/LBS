@@ -2,18 +2,13 @@ package cn.edu.nju.software.gof.entity;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import com.google.appengine.api.datastore.Key;
-
 public class PersonalLocation {
 
-	private Long ID;
+	private Long id;
 
-	private Long ownerID;
+	private Long ownerId;
+	
+	private Person owner;
 
 	private Double latitude;
 
@@ -25,33 +20,30 @@ public class PersonalLocation {
 		super();
 	}
 
-	public PersonalLocation(Long ownerID, Double latitude, Double longitude,
+	public PersonalLocation(Long ownerId, Double latitude, Double longitude,
 			Date time) {
 		super();
-		this.ownerID = ownerID;
+		this.ownerId = ownerId;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.time = time;
 	}
 
-	public Long getID() {
-		return ID;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setID(Long ID) {
-		this.ID = ID;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Long getOwnerID() {
-		return ownerID;
+	public Long getOwnerId() {
+		return ownerId;
 	}
 
-	public Person getOwner(EntityManager em) {
-		return em.find(Person.class, ownerID);
-	}
-
-	public void setOwnerID(Long ownerID) {
-		this.ownerID = ownerID;
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
 	}
 
 	public Double getLatitude() {
@@ -76,5 +68,13 @@ public class PersonalLocation {
 
 	public void setTime(Date checkInTime) {
 		this.time = checkInTime;
+	}
+
+	public Person getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Person owner) {
+		this.owner = owner;
 	}
 }

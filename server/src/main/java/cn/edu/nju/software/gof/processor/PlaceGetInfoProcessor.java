@@ -19,7 +19,7 @@ public class PlaceGetInfoProcessor implements RequestProcessor {
 		String placeID = request.getParameter(ServletParam.RequestParam.PlaceID);
 
 		PlaceUtilities utilities = new PlaceUtilities();
-		PlaceInfo info = utilities.getPlaceInfo(sessionID, placeID);
+		PlaceInfo info = utilities.getPlaceInfo(sessionID, Long.valueOf(placeID));
 
 		if (info != null) {
 			ResponseUtilities.writeMessage(response, info.toJSONString(),

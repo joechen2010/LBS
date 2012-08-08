@@ -32,6 +32,15 @@ public class AccountManager {
             return null;
         }
     }
+    
+    @Transactional(readOnly = true)
+    public Account findBySessionId(String sessionId) {
+        if (StringUtils.isNotBlank(sessionId)) {
+            return accountDao.findBySessionId(sessionId);
+        } else {
+            return null;
+        }
+    }
 
 
     @Autowired

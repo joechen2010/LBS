@@ -43,9 +43,9 @@ import android.net.http.AndroidHttpClient;
 
 public class NetworkClient {
 
-	private final static String host = "mutong-gof.appspot.com";
+	private final static String host = "do.jhost.cn";
 	private final static int port = 80;
-	private final static String path = "/api";
+	private final static String path = "/pathlife/api";
 	private final static String http = "http";
 	private final static String encoding = "UTF-8";
 	private final static String agent = "Opera/9.80 (Android; Opera Mini/5.1.22460/20.2485; U; en) Presto/2.5.25";

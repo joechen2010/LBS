@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.Toast;
 import cn.edu.nju.software.gof.beans.PersonInformationBean;
+import cn.edu.nju.software.gof.beans.User;
 import cn.edu.nju.software.gof.requests.AccountUtilities;
 
 public class RegisterActivity extends Activity {
@@ -197,8 +198,9 @@ public class RegisterActivity extends Activity {
 			String school = schoolEdit.getText().toString();
 			String place = placeEdit.getText().toString();
 			String birthday = datePicker.getDateStr();
+			String mobile = User.getInstance().getMobile();
 			final PersonInformationBean information = new PersonInformationBean(
-					realName, birthday, school, place);
+					realName, birthday, school, place, mobile);
 			showDialog(WAITTING_DIALOG);
 			(new AsyncTask<Void, Void, Void>() {
 

@@ -3,23 +3,19 @@ package cn.edu.nju.software.gof.servlet;
 import java.io.IOException;
 import java.util.Map;
 
-import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.OAuthProvider;
-
 import cn.edu.nju.software.gof.beans.oauth.OAuthRequest;
 import cn.edu.nju.software.gof.beans.oauth.OAuthRequestIdentity;
-import cn.edu.nju.software.gof.entity.EMF;
 import cn.edu.nju.software.gof.entity.OAuthAccessKey;
 import cn.edu.nju.software.gof.global.OAuthRequestTable;
 import cn.edu.nju.software.gof.type.SynchronizationProvider;
-
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
+import cn.edu.nju.software.manager.AuthAccessKeyManager;
+import cn.edu.nju.software.util.SpringContextHolder;
 
 @SuppressWarnings("serial")
 public class Callback extends HttpServlet {
@@ -42,11 +38,10 @@ public class Callback extends HttpServlet {
 		String string_PersonID = req.getParameter("person_id");
 		String string_ProviderType = req.getParameter("provider");
 		//
-		Key personID = KeyFactory.stringToKey(string_PersonID);
+		Long personID = Long.valueOf(string_PersonID);
 		SynchronizationProvider providerType = SynchronizationProvider
 				.valueOf(string_ProviderType);
-		OAuthRequestIdentity oauthRequestIdentity = new OAuthRequestIdentity(
-				personID, providerType);
+		OAuthRequestIdentity oauthRequestIdentity = new OAuthRequestIdentity(personID, providerType);
 		//
 		Map<OAuthRequestIdentity, OAuthRequest> requests = OAuthRequestTable
 				.getOAuthRequests();
@@ -67,12 +62,8 @@ public class Callback extends HttpServlet {
 			provider.retrieveAccessToken(consumer, oauthVerifier);
 			//
 			OAuthAccessKey key = null;//new OAuthAccessKey(personID,					consumer.getToken(), consumer.getTokenSecret(),					providerType);
-			EntityManager em = EMF.getInstance().createEntityManager();
-			try {
-				em.persist(key);
-			} finally {
-				em.close();
-			}
+			AuthAccessKeyManager authAccessKeyManager = SpringContextHolder.getBean("authAccessKeyManager");
+			authAccessKeyManager.saveOAuthAccessKeye(key);
 		} catch (Exception exception) {
 		}
 	}

@@ -18,7 +18,7 @@ public class FriendRequestProcessor implements RequestProcessor {
 		String friendID = request.getParameter(ServletParam.RequestParam.FriendID);
 
 		FriendUtilities utilities = new FriendUtilities();
-		boolean succ = utilities.sendFriendRequest(sessionID, friendID);
+		boolean succ = utilities.sendFriendRequest(sessionID, Long.valueOf(friendID));
 
 		ResponseUtilities.writeMessage(response, succ ? 1 : 0,
 				ResponseUtilities.TEXT);

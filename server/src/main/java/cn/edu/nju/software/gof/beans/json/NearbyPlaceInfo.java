@@ -2,7 +2,7 @@ package cn.edu.nju.software.gof.beans.json;
 
 public class NearbyPlaceInfo extends JSONAble {
 
-	private String ID;
+	private Long id;
 	private String palceName;
 	private double latitude;
 	private double longitude;
@@ -13,22 +13,23 @@ public class NearbyPlaceInfo extends JSONAble {
 		// TODO Auto-generated constructor stub
 	}
 
-	public NearbyPlaceInfo(String iD, String palceName, double latitude,
+	public NearbyPlaceInfo(Long id, String palceName, double latitude,
 			double longitude, Long checkInTimes) {
 		super();
-		ID = iD;
+		this.id = id;
 		this.palceName = palceName;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.checkInTimes = checkInTimes;
 	}
 
-	public String getID() {
-		return ID;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setID(String iD) {
-		ID = iD;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Long getCheckInTimes() {

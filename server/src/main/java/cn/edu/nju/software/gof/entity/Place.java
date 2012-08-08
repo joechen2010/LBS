@@ -1,26 +1,18 @@
 package cn.edu.nju.software.gof.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import com.google.appengine.api.datastore.Blob;
-import com.google.appengine.api.datastore.Key;
+import cn.edu.nju.software.manager.PlaceManager;
+import cn.edu.nju.software.manager.ReplyManager;
+import cn.edu.nju.software.util.SpringContextHolder;
 
 public class Place {
 
 	public static final Long START_MONEY = 256L;
 
-	private Long ID;
+	private Long id;
 
 	private String placeName;
 
@@ -28,29 +20,39 @@ public class Place {
 
 	private Double longutide;
 
-	private Long creatorID;
+	private Long creatorId;
 
-	private Long topUserID;
+	private Long topUserId;
+	
+	private Long parentId; 
 
 	private Long checkInTimes = 0L;
 
 	private Long currentMoney = START_MONEY;
 
-	private Blob image;
+	private byte[] image;
+	
+	private Person creator;
+	
+	private Person topUser;
+	
+	private Place Parent;
+	
+	private Date create_Time;
 
 	private List<Reply> replies = new ArrayList<Reply>();
 
-	private List<Place> subPlaces = new ArrayList<Place>();
+	private List<Place> subPlaces;
 
 	public Place() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Place(String placeName, Long creatorID) {
+	public Place(String placeName, Long creatorId) {
 		super();
 		this.placeName = placeName;
-		this.creatorID = creatorID;
+		this.creatorId = creatorId;
 	}
 
 	public Place(String placeName, Double latitude, Double longutide,
@@ -59,14 +61,14 @@ public class Place {
 		this.placeName = placeName;
 		this.latitude = latitude;
 		this.longutide = longutide;
-		this.creatorID = creator;
+		this.creatorId = creator;
 	}
 
-	public Blob getImage() {
+	public byte[] getImage() {
 		return image;
 	}
 
-	public void setImage(Blob image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
 
@@ -90,25 +92,33 @@ public class Place {
 		this.checkInTimes = checkInTimes;
 	}
 
-	public Long getID() {
-		return ID;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setID(Long iD) {
-		ID = iD;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Long getTopUserID() {
-		return topUserID;
+	public Long getCreatorId() {
+		return creatorId;
 	}
 
-	public void setTopUserID(Long topUserID) {
-		this.topUserID = topUserID;
+	public void setCreatorId(Long creatorId) {
+		this.creatorId = creatorId;
 	}
 
-	public Person getTopUser(EntityManager em) {
+	public Long getTopUserId() {
+		return topUserId;
+	}
 
-		return (topUserID == null) ? null : em.find(Person.class, topUserID);
+	public void setTopUserId(Long topUserId) {
+		this.topUserId = topUserId;
+	}
+
+	public static Long getStartMoney() {
+		return START_MONEY;
 	}
 
 	public String getPlaceName() {
@@ -136,6 +146,10 @@ public class Place {
 	}
 
 	public List<Reply> getReplies() {
+		if(replies == null){
+			ReplyManager replyManager = SpringContextHolder.getBean("replyManager");
+			replies = replyManager.findBypalceId(id);
+		}
 		return replies;
 	}
 
@@ -144,6 +158,10 @@ public class Place {
 	}
 
 	public List<Place> getSubPlaces() {
+		if(subPlaces == null){
+			PlaceManager placeManager = SpringContextHolder.getBean("placeManager");
+			subPlaces = placeManager.findSubPlacesById(id);
+		}
 		return subPlaces;
 	}
 
@@ -151,11 +169,44 @@ public class Place {
 		this.subPlaces = subPlaces;
 	}
 
-	public Long getCreatorID() {
-		return creatorID;
+	public Long getParentId() {
+		return parentId;
 	}
 
-	public void setCreatorID(Long creatorID) {
-		this.creatorID = creatorID;
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
 	}
+
+	public Person getCreator() {
+		return creator;
+	}
+
+	public void setCreator(Person creator) {
+		this.creator = creator;
+	}
+
+	public Person getTopUser() {
+		return topUser;
+	}
+
+	public void setTopUser(Person topUser) {
+		this.topUser = topUser;
+	}
+
+	public Date getCreate_Time() {
+		return create_Time;
+	}
+
+	public void setCreate_Time(Date create_Time) {
+		this.create_Time = create_Time;
+	}
+
+	public Place getParent() {
+		return Parent;
+	}
+
+	public void setParent(Place parent) {
+		Parent = parent;
+	}
+	
 }

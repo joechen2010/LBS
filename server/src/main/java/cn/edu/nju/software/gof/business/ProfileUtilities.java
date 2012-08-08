@@ -1,16 +1,16 @@
 package cn.edu.nju.software.gof.business;
 
-import javax.persistence.EntityManager;
+import org.springframework.stereotype.Component;
 
 import cn.edu.nju.software.gof.beans.json.ProfileInfo;
-import cn.edu.nju.software.gof.entity.EMF;
 import cn.edu.nju.software.gof.entity.Person;
 import cn.edu.nju.software.gof.entity.Profile;
 import cn.edu.nju.software.gof.type.UserState;
 
-import com.google.appengine.api.datastore.Blob;
 
-public class ProfileUtilities {
+
+@Component
+public class ProfileUtilities   extends BaseUtilities{
 
 	/**
 	 * Get the profile information of the given user.
@@ -20,23 +20,18 @@ public class ProfileUtilities {
 	 * @return The profile information.
 	 */
 	public ProfileInfo getUserProfile(String sessionID) {
-		EntityManager em = EMF.getInstance().createEntityManager();
-		try {
-			Person person = CommonUtilities.getPersonBySessionID(sessionID, em);
-			if (person == null) {
-				return null;
-			} else {
-				Profile profile = person.getProfile();
-				String realName = profile.getRealName();
-				String place = profile.getCurrentPlace();
-				String birthday = profile.getBirthday();
-				String school = profile.getSchool();
-				ProfileInfo profileInfo = new ProfileInfo(realName, school,
-						place, birthday);
-				return profileInfo;
-			}
-		} finally {
-			em.close();
+		Person person = accountManager.findBySessionId(sessionID).getOwner();
+		if (person == null) {
+			return null;
+		} else {
+			Profile profile = person.getProfile();
+			String realName = profile.getRealName();
+			String place = profile.getCurrentPlace();
+			String birthday = profile.getBirthday();
+			String school = profile.getSchool();
+			ProfileInfo profileInfo = new ProfileInfo(realName, school,
+					place, birthday,null);
+			return profileInfo;
 		}
 	}
 
@@ -48,34 +43,29 @@ public class ProfileUtilities {
 	 * @return
 	 */
 	public boolean setUserProfile(String sessionID, ProfileInfo profileInfo) {
-		EntityManager em = EMF.getInstance().createEntityManager();
-		try {
-			Person person = CommonUtilities.getPersonBySessionID(sessionID, em);
-			if (person == null) {
-				return false;
-			} else {
-				String realName = profileInfo.getRealName();
-				String birthday = profileInfo.getBirthday();
-				String school = profileInfo.getSchool();
-				String place = profileInfo.getPlace();
+		Person person = accountManager.findBySessionId(sessionID).getOwner();
+		if (person == null) {
+			return false;
+		} else {
+			String realName = profileInfo.getRealName();
+			String birthday = profileInfo.getBirthday();
+			String school = profileInfo.getSchool();
+			String place = profileInfo.getPlace();
 
-				Profile profile = person.getProfile();
-				if (realName != null) {
-					profile.setRealName(realName);
-				}
-				if (birthday != null) {
-					profile.setBirthday(birthday);
-				}
-				if (school != null) {
-					profile.setSchool(school);
-				}
-				if (place != null) {
-					profile.setCurrentPlace(place);
-				}
-				return true;
+			Profile profile = person.getProfile();
+			if (realName != null) {
+				profile.setRealName(realName);
 			}
-		} finally {
-			em.close();
+			if (birthday != null) {
+				profile.setBirthday(birthday);
+			}
+			if (school != null) {
+				profile.setSchool(school);
+			}
+			if (place != null) {
+				profile.setCurrentPlace(place);
+			}
+			return true;
 		}
 	}
 
@@ -86,22 +76,17 @@ public class ProfileUtilities {
 	 * @return
 	 */
 	public byte[] getUserAvatar(String sessionID) {
-		EntityManager em = EMF.getInstance().createEntityManager();
-		try {
-			Person person = CommonUtilities.getPersonBySessionID(sessionID, em);
-			if (person != null) {
-				Profile profile = person.getProfile();
-				Blob avatar = profile.getAvatar();
-				if (avatar != null) {
-					return avatar.getBytes();
-				} else {
-					return null;
-				}
+		Person person = accountManager.findBySessionId(sessionID).getOwner();
+		if (person != null) {
+			Profile profile = person.getProfile();
+			byte[] avatar = profile.getAvatar();
+			if (avatar != null) {
+				return avatar;
 			} else {
 				return null;
 			}
-		} finally {
-			em.close();
+		} else {
+			return null;
 		}
 	}
 
@@ -113,23 +98,17 @@ public class ProfileUtilities {
 	 * @return
 	 */
 	public boolean setUserAvatar(String sessionID, byte[] avatar) {
-		EntityManager em = EMF.getInstance().createEntityManager();
-		try {
-			Person person = CommonUtilities.getPersonBySessionID(sessionID, em);
-			if (person != null) {
-				Profile profile = person.getProfile();
-				if (avatar != null) {
-					Blob photo = new Blob(avatar);
-					profile.setAvatar(photo);
-					return true;
-				} else {
-					return false;
-				}
+		Person person = accountManager.findBySessionId(sessionID).getOwner();
+		if (person != null) {
+			Profile profile = person.getProfile();
+			if (avatar != null) {
+				profile.setAvatar(avatar);
+				return true;
 			} else {
 				return false;
 			}
-		} finally {
-			em.close();
+		} else {
+			return false;
 		}
 	}
 

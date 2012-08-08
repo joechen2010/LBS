@@ -3,48 +3,44 @@ package cn.edu.nju.software.gof.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.EntityManager;
-
 public class Reply  implements Serializable{
 
-	private Long ID;
+	private Long Id;
 
-	private Long ownerID;
+	private Long ownerId;
 
 	private String content;
 
 	private Date date;
+	
+	private Place place;
+	
+	private Person owner;
 
 	public Reply() {
 		super();
 	}
 
-	public Reply(Long ownerID, String content, Date date) {
+	public Reply(Long ownerId, String content, Date date) {
 		super();
 		this.content = content;
 		this.date = date;
-		this.ownerID = ownerID;
+		this.ownerId = ownerId;
 	}
 
-	public Long getID() {
-		return ID;
+
+	public Long getId() {
+		return Id;
 	}
 
-	public void setID(Long iD) {
-		ID = iD;
+	public void setId(Long id) {
+		Id = id;
 	}
 
-	public Long getOwnerID() {
-		return ownerID;
+	public Long getOwnerId() {
+		return ownerId;
 	}
 
-	public Person getOwner(EntityManager em) {
-		return em.find(Person.class, ownerID);
-	}
-
-	public void setOwnerID(Long ownerID) {
-		this.ownerID = ownerID;
-	}
 
 	public String getContent() {
 		return content;
@@ -61,4 +57,26 @@ public class Reply  implements Serializable{
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
+	public Place getPlace() {
+		return place;
+	}
+
+	public void setPlace(Place place) {
+		this.place = place;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+	}
+
+	public Person getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Person owner) {
+		this.owner = owner;
+	}
+	
+	
 }

@@ -4,8 +4,8 @@
     "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="RichMan">
     	<resultMap id="RichManMapper" type="RichMan">
-		<id property="ID" column="id" />
-		<result property="personID" column="personID" />
+		<id property="id" column="id" />
+		<result property="personId" column="personId" />
 		<result property="money" column="money" />
 	</resultMap>
 	
@@ -16,7 +16,7 @@
     
  
 	<insert id="insert" parameterType="RichMan">
-		insert into RichMan (id, personID, money) values (#{ID}, #{personID}, #{money})
+		insert into RichMan (id, personId, money) values (#{id}, #{personId}, #{money})
  	</insert>
 
       

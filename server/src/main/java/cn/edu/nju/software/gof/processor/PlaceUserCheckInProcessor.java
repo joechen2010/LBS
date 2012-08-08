@@ -18,7 +18,7 @@ public class PlaceUserCheckInProcessor implements RequestProcessor {
 		String placeID = request.getParameter(ServletParam.RequestParam.PlaceID);
 
 		CheckInUtilities utilities = new CheckInUtilities();
-		boolean succ = utilities.checkInPlace(sessionID, placeID);
+		boolean succ = utilities.checkInPlace(sessionID, Long.valueOf(placeID));
 
 		ResponseUtilities.writeMessage(response, succ ? 1 : 0,
 				ResponseUtilities.TEXT);

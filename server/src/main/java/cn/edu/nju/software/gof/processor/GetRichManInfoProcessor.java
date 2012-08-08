@@ -15,8 +15,8 @@ public class GetRichManInfoProcessor implements RequestProcessor {
 	public void process(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		String sessionID = request.getParameter(ServletParam.RequestParam.SessionID);
-
-		RichManInfo info = RichManUtilities.getRichManInfo(sessionID);
+		RichManUtilities richManUtilities = new RichManUtilities();
+		RichManInfo info = richManUtilities.getRichManInfo(sessionID);
 
 		if (info != null) {
 			ResponseUtilities.writeMessage(response, info.toJSONString(),

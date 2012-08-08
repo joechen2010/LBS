@@ -4,10 +4,10 @@ public class CommonNetWorkParamters {
 
 	private static String scheme = "http";
 	private static String encoding = "UTF-8";
-	private static String path = "/api";
+	private static String path = "/pathlife/api";
 //	private static int port = 8888;
-//	private static String host = "10.0.2.2";
-	private static String host = "mutong-gof.appspot.com";
+//	private static String host = "10.0.2.2";http://do.jhost.cn/pathlife/api
+	private static String host = "do.jhost.cn";
 	private static int port = 80;
 
 	public static void setScheme(String scheme) {

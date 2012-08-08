@@ -4,12 +4,18 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class CheckIn  implements Serializable {
+	
+    private static final long serialVersionUID = -6832688344476738908L;
 
-	private Long ID;
+	private Long id;
 
-	private Long ownerID;
+	private Long ownerId;
 
-	private Long placeID;
+	private Long placeId;
+	
+	private Person owner;
+	
+	private Place place;
 
 	private Date time;
 
@@ -18,35 +24,51 @@ public class CheckIn  implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CheckIn(Long ownerID, Long placeID, Date time) {
+	public CheckIn(Long ownerId, Long placeId, Date time) {
 		super();
-		this.ownerID = ownerID;
-		this.placeID = placeID;
+		this.ownerId = ownerId;
+		this.placeId = placeId;
 		this.time = time;
 	}
 
-	public Long getID() {
-		return ID;
+	public Person getOwner() {
+		return owner;
 	}
 
-	public void setID(Long iD) {
-		ID = iD;
+	public void setOwner(Person owner) {
+		this.owner = owner;
 	}
 
-	public Long getOwnerID() {
-		return ownerID;
+	public Place getPlace() {
+		return place;
 	}
 
-	public void setOwnerID(Long ownerID) {
-		this.ownerID = ownerID;
+	public void setPlace(Place place) {
+		this.place = place;
+	}
+	
+	public Long getId() {
+		return id;
 	}
 
-	public Long getPlaceID() {
-		return placeID;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public void setPlaceID(Long placeID) {
-		this.placeID = placeID;
+	public Long getOwnerId() {
+		return ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+	}
+
+	public Long getPlaceId() {
+		return placeId;
+	}
+
+	public void setPlaceId(Long placeId) {
+		this.placeId = placeId;
 	}
 
 	public Date getTime() {

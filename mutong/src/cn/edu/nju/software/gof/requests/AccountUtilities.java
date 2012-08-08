@@ -41,7 +41,8 @@ public class AccountUtilities {
 				info.getPlace()));
 		parList.add(new BasicNameValuePair(ServletParam.RequestParam.Birthday,
 				info.getBirthday()));
-
+		parList.add(new BasicNameValuePair(ServletParam.RequestParam.MOBILE,
+				info.getMobile()));
 		return NetworkClient.postMessage(parList);
 	}
 

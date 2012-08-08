@@ -4,24 +4,26 @@
     "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="Account">
 	<resultMap id="AccountMapper" type="Account">
-		<id property="ID" column="id" />
+		<id property="id" column="id" />
 		<result property="userName" column="userName" />
 		<result property="password" column="password" />
-		<result property="sessionID" column="sessionID" />
-		<association property="owner" column="person_id" javaType="Person" select="cn.edu.nju.software.gof.entity.Person"></association>
+		<result property="sessionId" column="sessionId" />
+		<association property="owner" column="person_id" javaType="Person" select="Person.findById"></association>
 	</resultMap>
 	
-	<select id="findById" resultMap="AccountMapper"
-		parameterType="Long">
+	<select id="findById" resultMap="AccountMapper"	parameterType="Long">
 		select u.* from Account u where u.id=#{id} and deleted != 1
     </select>
     
-	<select id="findByUserName" resultMap="AccountMapper"
-		parameterType="String">
+	<select id="findByUserName" resultMap="AccountMapper" parameterType="String">
 		select * from Account where userName=#{name} and deleted != 1
     </select>
+    
+	<select id="findBySessionId" resultMap="AccountMapper" parameterType="String">
+		select * from Account where sessionId=#{sessionId} and deleted != 1
+    </select>
   
-  <insert id="insert" parameterType="Profile">
-		insert into Profile (id, userName, password,sessionID,person_id) values (#{ID}, #{userName}, #{password},#{owner.iD})
+  <insert id="insert" parameterType="Account">
+		insert into Account (id, userName, password,sessionId,person_id) values (#{id}, #{userName}, #{password},#{sessionId},#{owner.id})
  	</insert>
 </mapper> 

@@ -7,9 +7,9 @@ public class RichMan  implements Serializable{
 
 	private static final Long START_MONEY = 1024L;
 
-	private Long ID;
+	private Long id;
 
-	private Long personID;
+	private Long personId;
 
 	private Long money = START_MONEY;
 
@@ -18,25 +18,25 @@ public class RichMan  implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public RichMan(Long personID) {
+	public RichMan(Long personId) {
 		super();
-		this.personID = personID;
+		this.personId = personId;
 	}
 
-	public Long getID() {
-		return ID;
+	public Long getId() {
+		return id;
 	}
 
-	public void setID(Long iD) {
-		ID = iD;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Long getPersonID() {
-		return personID;
+	public Long getPersonId() {
+		return personId;
 	}
 
-	public void setPersonID(Long personID) {
-		this.personID = personID;
+	public void setPersonId(Long personId) {
+		this.personId = personId;
 	}
 
 	public Long getMoney() {

@@ -22,7 +22,7 @@ public class UserModifyProfileProcessor implements RequestProcessor {
 		String birthday = request.getParameter(ServletParam.RequestParam.Birthday);
 		
 		ProfileUtilities utilities = new ProfileUtilities();
-		ProfileInfo info = new ProfileInfo(realName, school, place, birthday);
+		ProfileInfo info = new ProfileInfo(realName, school, place, birthday, null);
 		boolean succ = utilities.setUserProfile(sessionID, info);
 		
 		ResponseUtilities.writeMessage(response, succ ? 1 : 0,

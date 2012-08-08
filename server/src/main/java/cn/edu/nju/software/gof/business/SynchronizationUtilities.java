@@ -3,41 +3,34 @@ package cn.edu.nju.software.gof.business;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.EntityManager;
-
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.OAuthProvider;
 import oauth.signpost.basic.DefaultOAuthConsumer;
 import oauth.signpost.basic.DefaultOAuthProvider;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
+
+import org.springframework.stereotype.Component;
 
 import cn.edu.nju.software.gof.beans.oauth.OAuthApp;
 import cn.edu.nju.software.gof.beans.oauth.OAuthRequest;
 import cn.edu.nju.software.gof.beans.oauth.OAuthRequestIdentity;
 import cn.edu.nju.software.gof.business.synchronization.SynchronizationTable;
 import cn.edu.nju.software.gof.business.synchronization.Synchronizationable;
-import cn.edu.nju.software.gof.entity.EMF;
 import cn.edu.nju.software.gof.entity.Person;
 import cn.edu.nju.software.gof.entity.RenRen;
 import cn.edu.nju.software.gof.global.OAuthAppTable;
 import cn.edu.nju.software.gof.global.OAuthRequestTable;
 import cn.edu.nju.software.gof.type.SynchronizationProvider;
 
-public class SynchronizationUtilities {
+@Component
+public class SynchronizationUtilities  extends BaseUtilities{
 
 	public String getAuthorizeURL(String sessionID,
 			SynchronizationProvider providerType) {
 		// Get the person ID.
-		Key personID = null;
-		EntityManager em = EMF.getInstance().createEntityManager();
-		try {
-			Person person = CommonUtilities.getPersonBySessionID(sessionID, em);
-			if (person != null) {
-				personID = person.getID();
-			}
-		} finally {
-			em.close();
+		Person person = accountManager.findBySessionId(sessionID).getOwner();
+		Long personID = null;
+		if (person != null) {
+			personID = person.getId();
 		}
 		if (personID == null) {
 			return null;
@@ -50,9 +43,9 @@ public class SynchronizationUtilities {
 					app.getAppKeySecret());
 			// Build the call_back URL.
 			StringBuilder callback = new StringBuilder();
-			callback.append("http://mutong-gof.appspot.com/callback?");
+			callback.append("http://do.jhost.cn/pathlife/callback?");
 			callback.append("person_id=");
-			callback.append(KeyFactory.keyToString(personID));
+			callback.append(personID);
 			callback.append("&");
 			callback.append("provider=");
 			callback.append(providerType.toString());
@@ -64,8 +57,7 @@ public class SynchronizationUtilities {
 				Map<OAuthRequestIdentity, OAuthRequest> requests = OAuthRequestTable
 						.getOAuthRequests();
 				synchronized (requests) {
-					requests.put(new OAuthRequestIdentity(personID,
-							providerType), new OAuthRequest(consumer, provider));
+					requests.put(new OAuthRequestIdentity(personID,	providerType), new OAuthRequest(consumer, provider));
 				}
 				//
 			} catch (Exception exception) {
@@ -76,7 +68,7 @@ public class SynchronizationUtilities {
 		}
 	}
 
-	public void doSynchronization(Key personID, String placeName) {
+	public void doSynchronization(Long personID, String placeName) {
 		List<Synchronizationable> synchronizations = SynchronizationTable
 				.getSynchronizationList();
 		for (Synchronizationable synchronization : synchronizations) {
@@ -84,21 +76,15 @@ public class SynchronizationUtilities {
 		}
 	}
 
-	public boolean synchronizationToRenRen(String sessionID, String password,
-			String userName) {
-		EntityManager em = EMF.getInstance().createEntityManager();
-		try {
-			Person person = CommonUtilities.getPersonBySessionID(sessionID, em);
-			if (person == null) {
-				return false;
-			} else {
-				Key personID = person.getID();
-				RenRen renren = new RenRen(personID, userName, password);
-				em.persist(renren);
-				return true;
-			}
-		} finally {
-			em.close();
+	public boolean synchronizationToRenRen(String sessionID, String password,String userName) {
+		Person person = accountManager.findBySessionId(sessionID).getOwner();
+		if (person == null) {
+			return false;
+		} else {
+			Long personID = person.getId();
+			RenRen renren = new RenRen(personID, userName, password);
+			authAccessKeyManager.saveRenRen(renren);
+			return true;
 		}
 	}
 }

@@ -44,6 +44,8 @@ public final class ServletParam {
 	public static final String GET_FRIEND_AVATAR_COUNTER = "get_friend_avatar_counter";
 	public static final String GET_PLACE_IMAGE_COUNTER = "get_place_image_counter";
 	public static final String GET_MY_TOP_CHECKINS = "get_my_top_checkins";
+	
+	public static final String USERLOCATION = "USERLOCATION";
 
 	public final class RequestParam {
 		public static final String SessionID = "session_id";
@@ -74,6 +76,16 @@ public final class ServletParam {
 		public static final String Content = "content";
 
 		public static final String Provider = "provider";
+		
+		public static final String Action = "action";
+		public static final String ADD = "add";
+		public static final String SELECT = "select";
+		public static final String ADDRESS = "address";
+		public static final String CITY = "city";
+		public static final String STREET = "street";
+		public static final String LATITUDE = "latitude";
+		public static final String LONGITUDE = "longitude";
+		public static final String MOBILE = "mobile";
 	}
 
 	public final class JsonParam {

@@ -2,11 +2,9 @@ package cn.edu.nju.software.gof.beans.oauth;
 
 import cn.edu.nju.software.gof.type.SynchronizationProvider;
 
-import com.google.appengine.api.datastore.Key;
-
 public class OAuthRequestIdentity {
 
-	private Key personID;
+	private Long personID;
 
 	private SynchronizationProvider provider;
 
@@ -15,17 +13,17 @@ public class OAuthRequestIdentity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OAuthRequestIdentity(Key personID, SynchronizationProvider provider) {
+	public OAuthRequestIdentity(Long personID, SynchronizationProvider provider) {
 		super();
 		this.personID = personID;
 		this.provider = provider;
 	}
 
-	public Key getPersonID() {
+	public Long getPersonID() {
 		return personID;
 	}
 
-	public void setPersonID(Key personID) {
+	public void setPersonID(Long personID) {
 		this.personID = personID;
 	}
 

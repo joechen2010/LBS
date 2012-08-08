@@ -16,7 +16,8 @@ public class BuyExistedPlaceProcessor implements RequestProcessor {
 		String sessionID = request.getParameter(ServletParam.RequestParam.SessionID);
 		String placeID = request.getParameter(ServletParam.RequestParam.PlaceID);
 
-		boolean success = RichManUtilities.buyExistedPlace(sessionID, placeID);
+		RichManUtilities richManUtilities = new RichManUtilities();
+		boolean success = richManUtilities.buyExistedPlace(sessionID, Long.valueOf(placeID));
 
 		ResponseUtilities.writeMessage(response, success ? 1 : 0,
 				ResponseUtilities.TEXT);

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="UserLocation">
+	<resultMap id="UserLocationMapper" type="UserLocation">
+		<id property="id" column="id" />
+		<result property="address" column="address" />
+		<result property="timestamp" column="timestamp" />
+		<result property="city" column="city" />
+		<result property="street" column="street" />
+		<result property="latitude" column="latitude" />
+		<result property="longitude" column="longitude" />
+		<result property="mobile" column="mobile" />
+		<association property="owner" column="ownerid" javaType="Person" select="Person.findById"></association>
+	</resultMap>
+	
+	<select id="findById" resultMap="UserLocationMapper"	parameterType="Long">
+		select u.* from UserLocation u where u.id=#{id} 
+    </select>
+    
+	<select id="findByOwnerId" resultMap="java.util.List"	parameterType="Long">
+		select u.* from UserLocation u where u.ownerId=#{ownerId} 
+    </select>
+    
+  
+  <insert id="insert" parameterType="Account">
+		insert into UserLocation (id,ownerId, address, city,street,latitude,longitude,mobile) 
+		values (#{id}, #{ownerId},#{address}, #{city},#{street},#{latitude},#{longitude},#{mobile})
+ 	</insert>
+</mapper> 

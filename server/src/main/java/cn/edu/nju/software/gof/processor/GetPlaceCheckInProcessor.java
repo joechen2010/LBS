@@ -19,8 +19,7 @@ public class GetPlaceCheckInProcessor implements RequestProcessor {
 		String placeID = request.getParameter(ServletParam.RequestParam.PlaceID);
 
 		PlaceUtilities utilities = new PlaceUtilities();
-		PlaceCheckInfomationBean info = utilities.getPlaceCheckIn(sessionID,
-				placeID);
+		PlaceCheckInfomationBean info = utilities.getPlaceCheckIn(sessionID,Long.valueOf(placeID));
 
 		if (info != null) {
 			ResponseUtilities.writeMessage(response, info.toJSONString(),

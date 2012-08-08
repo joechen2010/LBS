@@ -1,11 +1,14 @@
 package cn.edu.nju.software.gof.entity;
 
-import com.mysql.jdbc.Blob;
+import java.io.Serializable;
+import java.util.HashMap;
 
 
-public class Profile {
+public class Profile  implements Serializable{
+	
+    private static final long serialVersionUID = -6822688344476748908L;
 
-	private Long ID;
+	private Long id;
 
 	private Person owner;
 
@@ -17,7 +20,9 @@ public class Profile {
 
 	private String currentPlace;
 
-	private Blob avatar;
+	private byte[] avatar;
+	
+	private HashMap fieldMap;
 
 	public Profile() {
 		super();
@@ -39,12 +44,13 @@ public class Profile {
 		this.currentPlace = currentPlace;
 	}
 
-	public Long getID() {
-		return ID;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setID(Long iD) {
-		ID = iD;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getRealName() {
@@ -79,11 +85,12 @@ public class Profile {
 		this.currentPlace = currentPlace;
 	}
 
-	public Blob getAvatar() {
+
+	public byte[] getAvatar() {
 		return avatar;
 	}
 
-	public void setAvatar(Blob avatar) {
+	public void setAvatar(byte[] avatar) {
 		this.avatar = avatar;
 	}
 

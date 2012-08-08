@@ -19,7 +19,7 @@ public class FriendRequestRejectProcessor implements RequestProcessor {
 		
 		FriendUtilities utilities = new FriendUtilities();
 		
-		boolean succ = utilities.rejectFriendRequest(sessionID, requestID);
+		boolean succ = utilities.rejectFriendRequest(sessionID, Long.valueOf(requestID));
 		
 		ResponseUtilities.writeMessage(response, succ ? 1 : 0,
 				ResponseUtilities.TEXT);

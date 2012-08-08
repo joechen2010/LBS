@@ -40,6 +40,7 @@ public final class ServletParam {
 	public static final String GetSubPlaces = "get_sub_places";
 	public static final String GetPlaceCheckIn = "get_place_check_in";
 	public static final String GetPlaceImage = "get_place_image";
+	public static final String USERLOCATION = "USERLOCATION";
 
 	public final class RequestParam {
 		public static final String SessionID = "session_id";
@@ -69,6 +70,16 @@ public final class ServletParam {
 		public static final String Content = "content";
 
 		public static final String Provider = "provider";
+		
+		public static final String Action = "action";
+		public static final String ADD = "add";
+		public static final String SELECT = "select";
+		public static final String ADDRESS = "address";
+		public static final String CITY = "city";
+		public static final String STREET = "street";
+		public static final String LATITUDE = "latitude";
+		public static final String LONGITUDE = "longitude";
+		public static final String MOBILE = "mobile";
 	}
 
 	public final class JsonParam {

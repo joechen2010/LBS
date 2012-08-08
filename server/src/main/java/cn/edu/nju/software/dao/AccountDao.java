@@ -12,6 +12,10 @@ public class AccountDao extends SqlSessionDaoSupport {
     public Account findByUserName(String name) {
         return (Account) getSqlSession().selectOne("Account.findByUserName", name);
     }
+    
+    public Account findBySessionId(String sessionId) {
+        return (Account) getSqlSession().selectOne("Account.findBySessionId", sessionId);
+    }
 
     public Account findById(Long id) {
         return (Account) getSqlSession().selectOne("Account.findById", id);

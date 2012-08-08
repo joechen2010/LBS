@@ -23,7 +23,7 @@ public class GetPlaceRepliesProcessor implements RequestProcessor {
 
 		PlaceUtilities utilities = new PlaceUtilities();
 
-		List<ReplyInfo> replies = utilities.getReplies(sessionID, placeID);
+		List<ReplyInfo> replies = utilities.getReplies(sessionID, Long.valueOf(placeID));
 
 		if (replies != null) {
 			JSONObject json = new JSONObject();

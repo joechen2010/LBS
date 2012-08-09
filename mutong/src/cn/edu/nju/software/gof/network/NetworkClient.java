@@ -43,7 +43,7 @@ import android.net.http.AndroidHttpClient;
 
 public class NetworkClient {
 
-	private final static String host = "do.jhost.cn";
+	private final static String host = "joechen8310.s156.eatj.com";
 	private final static int port = 80;
 	private final static String path = "/pathlife/api";
 	private final static String http = "http";

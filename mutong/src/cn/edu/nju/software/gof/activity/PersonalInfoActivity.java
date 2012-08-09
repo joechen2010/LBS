@@ -170,7 +170,7 @@ public class PersonalInfoActivity extends Activity {
 					birthday = mYear + "-" + (mMonth + 1) + "-" + mDay;
 				}
 				final PersonInformationBean bean = new PersonInformationBean(
-						realName, birthday, school, place);
+						realName, birthday, school, place, null);
 				//
 				Drawable avatar = avatarEdit.getDrawable();
 				ByteArrayInputStream in = null;

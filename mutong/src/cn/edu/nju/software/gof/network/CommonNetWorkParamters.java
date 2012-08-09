@@ -7,7 +7,7 @@ public class CommonNetWorkParamters {
 	private static String path = "/pathlife/api";
 //	private static int port = 8888;
 //	private static String host = "10.0.2.2";http://do.jhost.cn/pathlife/api
-	private static String host = "do.jhost.cn";
+	private static String host = "joechen8310.s156.eatj.com";
 	private static int port = 80;
 
 	public static void setScheme(String scheme) {

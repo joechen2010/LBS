@@ -65,12 +65,12 @@
 	<string name="recent_time">距离最近一次更新位置已有：</string>
 	<!-- FriendManagerActivity -->
 	<string-array name="friend_manager_list">
-		<!-- <item>发起聊天</item> -->
-		<!--<item>查看聊天记录</item> -->
+		<item>发起聊天</item>
+		<item>查看聊天记录</item>
 		<item>查看好友详细资料</item>
 		<item>查看好友签到记录</item>
 		<item>解除好友关系</item>
-		<!--<item>删除聊天记录</item> -->
+		<item>删除聊天记录</item>
 	</string-array>
 	<string name="delete_friend_ok">好友删除成功！</string>
 	<string name="delete_friend_fail">好友删除失败，请重试！</string>

@@ -14,7 +14,6 @@ import cn.edu.nju.software.gof.entity.Person;
 import cn.edu.nju.software.gof.entity.PersonalLocation;
 import cn.edu.nju.software.gof.entity.Place;
 
-@Component
 public class CheckInUtilities extends BaseUtilities{
 
 	public boolean updateLocation(String sessionID, double latitude,double longitude) {
@@ -95,6 +94,7 @@ public class CheckInUtilities extends BaseUtilities{
 		}
 		//
 		// RichMan
+		RichManUtilities richManUtilities = new RichManUtilities();
 		richManUtilities.adjustMoneyByCheckIn(placeID, personID);
 		return true;
 	}

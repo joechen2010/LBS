@@ -21,7 +21,6 @@ import cn.edu.nju.software.gof.global.OAuthAppTable;
 import cn.edu.nju.software.gof.global.OAuthRequestTable;
 import cn.edu.nju.software.gof.type.SynchronizationProvider;
 
-@Component
 public class SynchronizationUtilities  extends BaseUtilities{
 
 	public String getAuthorizeURL(String sessionID,

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
+  "http://ibatis.apache.org/dtd/ibatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="true"/>
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<setting name="multipleResultSetsEnabled" value="true"/>
+		<setting name="useColumnLabel" value="true"/>
+		<setting name="useGeneratedKeys" value="false"/>
+		<setting name="defaultExecutorType" value="REUSE"/>
+		<setting name="defaultStatementTimeout" value="25000"/>
+	</settings>
+
+	<typeAliases>
+		<typeAlias alias="Account" type="cn.edu.nju.software.gof.entity.Account"/>
+		<typeAlias alias="Person" type="cn.edu.nju.software.gof.entity.Person"/>
+		<typeAlias alias="Profile" type="cn.edu.nju.software.gof.entity.Profile"/>
+		<typeAlias alias="RichMan" type="cn.edu.nju.software.gof.entity.RichMan"/>
+		<typeAlias alias="CheckInCounter" type="cn.edu.nju.software.gof.entity.CheckInCounter"/>
+		<typeAlias alias="CheckIn" type="cn.edu.nju.software.gof.entity.CheckIn"/>
+		<typeAlias alias="FriendRequest" type="cn.edu.nju.software.gof.entity.FriendRequest"/>
+		<typeAlias alias="OAuthAccessKey" type="cn.edu.nju.software.gof.entity.OAuthAccessKey"/>
+		<typeAlias alias="PersonalLocation" type="cn.edu.nju.software.gof.entity.PersonalLocation"/>
+		<typeAlias alias="Place" type="cn.edu.nju.software.gof.entity.Place"/>
+		<typeAlias alias="RenRen" type="cn.edu.nju.software.gof.entity.RenRen"/>
+		<typeAlias alias="Reply" type="cn.edu.nju.software.gof.entity.Reply"/>
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="mapper/AccountMapper.xml"/>
+		<mapper resource="mapper/PersonMapper.xml"/>
+		<mapper resource="mapper/ProfileMapper.xml"/>
+		<mapper resource="mapper/RichManMapper.xml"/>
+		<mapper resource="mapper/CheckInCounterMapper.xml"/>
+		<mapper resource="mapper/CheckInMapper.xml"/>
+		<mapper resource="mapper/FriendRequestMapper.xml"/>
+		<mapper resource="mapper/OAuthAccessKeyMapper.xml"/>
+		<mapper resource="mapper/PersonalLocationMapper.xml"/>
+		<mapper resource="mapper/PlaceMapper.xml"/>
+		<mapper resource="mapper/RenRenMapper.xml"/>
+		<mapper resource="mapper/ReplyMapper.xml"/>
+	</mappers>
+</configuration>
+
+   

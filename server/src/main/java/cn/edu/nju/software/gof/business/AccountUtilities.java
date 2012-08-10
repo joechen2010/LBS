@@ -11,7 +11,6 @@ import cn.edu.nju.software.gof.entity.Person;
 import cn.edu.nju.software.gof.entity.Profile;
 import cn.edu.nju.software.manager.AccountManager;
 
-@Component
 public class AccountUtilities extends BaseUtilities {
 	
 	public boolean isUserExisted(String userName) {
@@ -64,6 +63,7 @@ public class AccountUtilities extends BaseUtilities {
 			//
 			personManager.save(person);
 		}
+		RichManUtilities richManUtilities = new RichManUtilities();
 		return richManUtilities.initRichMan(person.getId());
 
 	}

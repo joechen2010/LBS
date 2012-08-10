@@ -27,10 +27,12 @@ public abstract class BaseUtilities {
 	protected FriendRequestManager friendRequestManager = SpringContextHolder.getBean("friendRequestManager");	
 	protected UserLocationManager userLocationManager = SpringContextHolder.getBean("userLocationManager");
 	
+	/*
 	protected CommonUtilities commonUtilities = SpringContextHolder.getBean("commonUtilities");
 	protected RichManUtilities richManUtilities = SpringContextHolder.getBean("richManUtilities");
 	protected CheckInUtilities checkInUtilities = SpringContextHolder.getBean("checkInUtilities");
 	protected FriendUtilities friendUtilities = SpringContextHolder.getBean("friendUtilities");
 	protected PlaceUtilities placeUtilities = SpringContextHolder.getBean("placeUtilities");
 	protected ProfileUtilities profileUtilities = SpringContextHolder.getBean("profileUtilities");
+	*/
 }

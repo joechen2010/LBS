@@ -20,7 +20,6 @@ import cn.edu.nju.software.gof.entity.Profile;
 import cn.edu.nju.software.gof.entity.Reply;
 import cn.edu.nju.software.gof.entity.RichMan;
 
-@Component
 public class PlaceUtilities  extends BaseUtilities{
 
 	public List<NearbyPlaceInfo> getNearbyPlaces(String sessionID,	double latitude, double longitude) {

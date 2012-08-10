@@ -10,7 +10,7 @@
 	<groupId>com.ericsson.sdp</groupId>
 	<artifactId>LBS-server</artifactId>
 	<version>1.5.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>LBS-server</name>
 
 	<!-- Release Setting -->
@@ -320,6 +320,16 @@
 
 	<build>
 		<plugins>
+		    
+		    <plugin>  
+		        <groupId>org.apache.maven.plugins</groupId>  
+		        <artifactId>maven-compiler-plugin</artifactId>  
+		        <configuration>  
+		          <source>1.6</source>  
+		          <target>1.6</target>  
+		        </configuration>  
+		      </plugin>  
+		    
 			<!-- release plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

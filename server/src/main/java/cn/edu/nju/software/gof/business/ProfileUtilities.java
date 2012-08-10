@@ -9,7 +9,6 @@ import cn.edu.nju.software.gof.type.UserState;
 
 
 
-@Component
 public class ProfileUtilities   extends BaseUtilities{
 
 	/**

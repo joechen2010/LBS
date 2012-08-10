@@ -10,7 +10,6 @@ import cn.edu.nju.software.gof.entity.Person;
 import cn.edu.nju.software.gof.entity.Place;
 import cn.edu.nju.software.gof.entity.RichMan;
 
-@Component
 public class RichManUtilities extends BaseUtilities{
 
 	private static final int CHECK_IN_CHECKER_MONEY = 64;

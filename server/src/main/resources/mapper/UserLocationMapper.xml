@@ -19,7 +19,7 @@
 		select u.* from UserLocation u where u.id=#{id} 
     </select>
     
-	<select id="findByOwnerId" resultMap="java.util.List"	parameterType="Long">
+	<select id="findByOwnerId" resultMap="UserLocationMapper"	parameterType="Long">
 		select u.* from UserLocation u where u.ownerId=#{ownerId} 
     </select>
     

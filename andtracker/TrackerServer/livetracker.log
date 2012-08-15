@@ -1,0 +1,12 @@
+2012-08-15 12:00:30,881 INFO  [main] log.Slf4jLog (Slf4jLog.java:67) - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2012-08-15 12:00:30,949 INFO  [main] log.Slf4jLog (Slf4jLog.java:67) - jetty-6.1.26
+2012-08-15 12:00:31,039 WARN  [main] log.Slf4jLog (Slf4jLog.java:76) - Unknown realm: Auth
+2012-08-15 12:00:31,494 INFO  [main] log.Slf4jLog (Slf4jLog.java:67) - Started SocketConnector@0.0.0.0:9000
+2012-08-15 12:00:51,566 INFO  [LoadManager] admin.LoadManager (LoadManager.java:90) - Current usage: registered trackings=0 / active trackings=0 / active trackers=0
+2012-08-15 12:01:11,566 INFO  [LoadManager] admin.LoadManager (LoadManager.java:90) - Current usage: registered trackings=0 / active trackings=0 / active trackers=0
+2012-08-15 12:01:31,565 INFO  [LoadManager] admin.LoadManager (LoadManager.java:90) - Current usage: registered trackings=0 / active trackings=0 / active trackers=0
+2012-08-15 12:01:51,564 INFO  [LoadManager] admin.LoadManager (LoadManager.java:90) - Current usage: registered trackings=0 / active trackings=0 / active trackers=0
+2012-08-15 12:02:11,563 INFO  [LoadManager] admin.LoadManager (LoadManager.java:90) - Current usage: registered trackings=0 / active trackings=0 / active trackers=0
+2012-08-15 12:02:31,562 INFO  [LoadManager] admin.LoadManager (LoadManager.java:90) - Current usage: registered trackings=0 / active trackings=0 / active trackers=0
+2012-08-15 12:02:51,561 INFO  [LoadManager] admin.LoadManager (LoadManager.java:90) - Current usage: registered trackings=0 / active trackings=0 / active trackers=0
+2012-08-15 12:03:11,560 INFO  [LoadManager] admin.LoadManager (LoadManager.java:90) - Current usage: registered trackings=0 / active trackings=0 / active trackers=0

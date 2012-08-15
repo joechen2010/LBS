@@ -16,7 +16,7 @@
 		select u.* from Reply u where u.id=#{id} 
     </select>
     
-	<select id="findBypalceId" resultMap="PlaceMapper" parameterType="Long">
+	<select id="findBypalceId" resultMap="ReplyMapper" parameterType="Long">
 		select u.* from Reply u where u.palceId=#{palceId} 
     </select>
   

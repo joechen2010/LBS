@@ -14,7 +14,7 @@
 		select u.* from RenRen u where u.id=#{id} and deleted != 1
     </select>
     
-	<select id="find" resultMap="java.util.List"	parameterType="RenRen">
+	<select id="find" resultMap="RenRenMapper"	parameterType="RenRen">
 		select u.* from RenRen u where u.id=#{id} 
 		<if test="ownerId !=null and ownerId !='' ">
 	        and ownerId =#{ownerId}

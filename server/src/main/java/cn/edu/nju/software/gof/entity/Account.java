@@ -15,6 +15,8 @@ public class Account implements Serializable {
 	private String password;
 
 	private String sessionId;
+	
+	private boolean deleted;
 
 	public Account() {
 		super();
@@ -69,5 +71,15 @@ public class Account implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+	
+	
 
 }

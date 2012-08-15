@@ -15,7 +15,7 @@
 		select u.* from CheckIn u where u.id=#{id} 
     </select>
     
-	<select id="findByOwnerId" resultMap="java.util.List" parameterType="Long">
+	<select id="findByOwnerId" resultMap="CheckInMapper" parameterType="Long">
 		select u.* from CheckIn u where u.ownerId=#{ownerId} 
     </select>
     

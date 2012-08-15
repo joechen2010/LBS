@@ -15,7 +15,7 @@
 		select u.* from OAuthAccessKey u where u.id=#{id} 
     </select>
     
-	<select id="find" resultMap="java.util.List"	parameterType="OAuthAccessKey">
+	<select id="find" resultMap="OAuthAccessKeyMapper"	parameterType="OAuthAccessKey">
 		select u.* from OAuthAccessKey u where u.id=#{id} 
 		<if test="ownerId !=null and ownerId !='' ">
 	        and ownerId =#{ownerId}

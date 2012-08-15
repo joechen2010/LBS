@@ -18,7 +18,7 @@
 		select u.* from Account u where u.id=#{id} and deleted != 1
     </select>
     
-	<select id="findNearbyFriends" resultMap="java.util.List" parameterType="java.util.Map">
+	<select id="findNearbyFriends" resultMap="PersonalLocationMapper" parameterType="java.util.Map">
 		SELECT * FROM PersonalLocation AS P WHERE P.ownerID IN 
 		<foreach collection="friendIds" item="friendId" open="(" separator="," close=")">
         	#{friendId}
@@ -28,7 +28,7 @@
         </if>
     </select>
     
-	<select id="findByOwerId" resultMap="java.util.List" parameterType="Long">
+	<select id="findByOwerId" resultMap="PersonalLocationMapper" parameterType="Long">
 		select u.* from PersonalLocation u where u.ownerId=#{ownerId} 
     </select>
     

@@ -13,7 +13,7 @@
 		delete from FriendRequest where targetPersonId = #{targetPersonId} and sourcePersonId = #{sourcePersonId}
     </delete>
 	
-	<select id="find" resultMap="java.util.List" parameterType="java.util.Map">
+	<select id="find" resultMap="FriendRequestMapper" parameterType="java.util.Map">
 		SELECT * FROM FriendRequest  WHERE 1=1
         <if test="targetPersonId !=null and targetPersonId !=''">
         	and targetPersonId = #{targetPersonId}

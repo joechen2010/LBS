@@ -27,7 +27,7 @@
 		select u.* from Place u where u.id=#{id} 
     </select>
     
-	<select id="find" resultMap="java.util.List"	parameterType="Place">
+	<select id="find" resultMap="PlaceMapper"	parameterType="Place">
 		select * from Place  where 1=1
 	  <if test="creatorId !=null and creatorId !='' ">
         and creatorId =#{creatorId}

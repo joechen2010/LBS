@@ -1132,3 +1132,84 @@ java.lang.IllegalArgumentException: Result Maps collection does not contain valu
 2012-08-15 16:30:07,506 DEBUG [java.sql.Connection] - ooo Connection Opened
 2012-08-15 16:30:07,507 DEBUG [java.sql.PreparedStatement] - ==>  Executing: select u.* from RichMan u where u.personID=? 
 2012-08-15 16:30:07,507 DEBUG [java.sql.PreparedStatement] - ==> Parameters: 117470631055801(Long)
+2012-08-15 17:18:38,365 INFO [org.mortbay.log] - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2012-08-15 17:18:38,407 INFO [org.mortbay.log] - jetty-6.1.26
+2012-08-15 17:18:38,833 INFO [/] - Initializing Spring root WebApplicationContext
+2012-08-15 17:18:38,833 INFO [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization started
+2012-08-15 17:18:38,949 INFO [org.springframework.web.context.support.XmlWebApplicationContext] - Refreshing Root WebApplicationContext: startup date [Wed Aug 15 17:18:38 CST 2012]; root of context hierarchy
+2012-08-15 17:18:39,003 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/C:/Users/xchezhe/workspace/GIT/LBS/server/target/classes/applicationContext.xml]
+2012-08-15 17:18:39,100 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/C:/Users/xchezhe/workspace/GIT/LBS/server/target/classes/applicationContext-core.xml]
+2012-08-15 17:18:39,276 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/C:/Users/xchezhe/workspace/GIT/LBS/server/target/classes/applicationContext-manager.xml]
+2012-08-15 17:18:39,591 INFO [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer] - Loading properties file from URL [file:/C:/Users/xchezhe/workspace/GIT/LBS/server/target/classes/application.properties]
+2012-08-15 17:18:39,591 INFO [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer] - Loading properties file from ServletContext resource [/opt/ericsson/sdp/conf/manager.properties]
+2012-08-15 17:18:39,592 WARN [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer] - Could not load properties from ServletContext resource [/opt/ericsson/sdp/conf/manager.properties]: Could not open ServletContext resource [/opt/ericsson/sdp/conf/manager.properties]
+2012-08-15 17:18:39,640 INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@13526ae: defining beans [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0,dataSource,cn.edu.nju.software.util.SpringContextHolder#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,accessKeyDao,accountDao,checkInCounterDao,checkInDao,friendRequestDao,personalLocationDao,personDao,placeDao,profileDao,replyDao,richManDao,userLocationDao,friendUtilities,accountManager,authAccessKeyManager,checkInCounterManager,checkInManager,friendRequestManager,personalLocationManager,personManager,placeManager,replyManager,richManManager,userLocationManager,transactionManager,sqlSessionFactory,sqlSessionTemplate,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,messageSource,jmxServer,mbeanExporter,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2012-08-15 17:18:40,350 INFO [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] - Registering beans for JMX exposure on startup
+2012-08-15 17:18:41,064 INFO [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization completed in 2231 ms
+2012-08-15 17:18:41,198 INFO [/] - Initializing Spring FrameworkServlet 'dispatcher'
+2012-08-15 17:18:41,198 INFO [org.springframework.web.servlet.DispatcherServlet] - FrameworkServlet 'dispatcher': initialization started
+2012-08-15 17:18:41,200 INFO [org.springframework.web.context.support.XmlWebApplicationContext] - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Aug 15 17:18:41 CST 2012]; parent: Root WebApplicationContext
+2012-08-15 17:18:41,202 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+2012-08-15 17:18:41,231 INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1507ecc: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,viewResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@13526ae
+2012-08-15 17:18:41,285 INFO [org.springframework.web.servlet.DispatcherServlet] - FrameworkServlet 'dispatcher': initialization completed in 87 ms
+2012-08-15 17:18:41,290 INFO [org.mortbay.log] - Started SocketConnector@0.0.0.0:9000
+2012-08-15 17:19:31,438 DEBUG [java.sql.Connection] - ooo Connection Opened
+2012-08-15 17:19:31,531 DEBUG [java.sql.PreparedStatement] - ==>  Executing: select id, userName, password,sessionId,person_id,deleted from Account where userName=? and deleted != 1 
+2012-08-15 17:19:31,531 DEBUG [java.sql.PreparedStatement] - ==> Parameters: joechen(String)
+2012-08-15 17:19:31,615 ERROR [org.mortbay.log] - /api
+java.lang.NullPointerException
+	at cn.edu.nju.software.gof.business.AccountUtilities.login(AccountUtilities.java:30)
+	at cn.edu.nju.software.gof.processor.UserLoginProcessor.process(UserLoginProcessor.java:44)
+	at cn.edu.nju.software.gof.servlet.DispatcherServlet.doPostAndGet(DispatcherServlet.java:69)
+	at cn.edu.nju.software.gof.servlet.DispatcherServlet.doGet(DispatcherServlet.java:24)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.jetty.bio.SocketConnector$Connection.run(SocketConnector.java:228)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+2012-08-15 17:19:57,827 DEBUG [java.sql.Connection] - ooo Connection Opened
+2012-08-15 17:19:57,827 DEBUG [java.sql.PreparedStatement] - ==>  Executing: select id, userName, password,sessionId,person_id,deleted from Account where userName=? and deleted != 1 
+2012-08-15 17:19:57,827 DEBUG [java.sql.PreparedStatement] - ==> Parameters: joechen(String)
+2012-08-15 17:21:27,860 INFO [org.mortbay.log] - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2012-08-15 17:21:27,904 INFO [org.mortbay.log] - jetty-6.1.26
+2012-08-15 17:21:28,212 INFO [/] - Initializing Spring root WebApplicationContext
+2012-08-15 17:21:28,212 INFO [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization started
+2012-08-15 17:21:28,300 INFO [org.springframework.web.context.support.XmlWebApplicationContext] - Refreshing Root WebApplicationContext: startup date [Wed Aug 15 17:21:28 CST 2012]; root of context hierarchy
+2012-08-15 17:21:28,361 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/C:/Users/xchezhe/workspace/GIT/LBS/server/target/classes/applicationContext.xml]
+2012-08-15 17:21:28,458 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/C:/Users/xchezhe/workspace/GIT/LBS/server/target/classes/applicationContext-core.xml]
+2012-08-15 17:21:28,641 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/C:/Users/xchezhe/workspace/GIT/LBS/server/target/classes/applicationContext-manager.xml]
+2012-08-15 17:21:28,938 INFO [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer] - Loading properties file from URL [file:/C:/Users/xchezhe/workspace/GIT/LBS/server/target/classes/application.properties]
+2012-08-15 17:21:28,938 INFO [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer] - Loading properties file from ServletContext resource [/opt/ericsson/sdp/conf/manager.properties]
+2012-08-15 17:21:28,938 WARN [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer] - Could not load properties from ServletContext resource [/opt/ericsson/sdp/conf/manager.properties]: Could not open ServletContext resource [/opt/ericsson/sdp/conf/manager.properties]
+2012-08-15 17:21:28,986 INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1633f09: defining beans [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0,dataSource,cn.edu.nju.software.util.SpringContextHolder#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,accessKeyDao,accountDao,checkInCounterDao,checkInDao,friendRequestDao,personalLocationDao,personDao,placeDao,profileDao,replyDao,richManDao,userLocationDao,friendUtilities,accountManager,authAccessKeyManager,checkInCounterManager,checkInManager,friendRequestManager,personalLocationManager,personManager,placeManager,replyManager,richManManager,userLocationManager,transactionManager,sqlSessionFactory,sqlSessionTemplate,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,messageSource,jmxServer,mbeanExporter,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2012-08-15 17:21:29,641 INFO [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] - Registering beans for JMX exposure on startup
+2012-08-15 17:21:30,123 INFO [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization completed in 1911 ms
+2012-08-15 17:21:30,199 INFO [/] - Initializing Spring FrameworkServlet 'dispatcher'
+2012-08-15 17:21:30,199 INFO [org.springframework.web.servlet.DispatcherServlet] - FrameworkServlet 'dispatcher': initialization started
+2012-08-15 17:21:30,201 INFO [org.springframework.web.context.support.XmlWebApplicationContext] - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Aug 15 17:21:30 CST 2012]; parent: Root WebApplicationContext
+2012-08-15 17:21:30,203 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+2012-08-15 17:21:30,232 INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@18a3955: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,viewResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1633f09
+2012-08-15 17:21:30,284 INFO [org.springframework.web.servlet.DispatcherServlet] - FrameworkServlet 'dispatcher': initialization completed in 85 ms
+2012-08-15 17:21:30,290 INFO [org.mortbay.log] - Started SocketConnector@0.0.0.0:9000
+2012-08-15 17:21:48,127 DEBUG [java.sql.Connection] - ooo Connection Opened
+2012-08-15 17:21:48,208 DEBUG [java.sql.PreparedStatement] - ==>  Executing: select * from Account where userName=? and deleted != 1 
+2012-08-15 17:21:48,208 DEBUG [java.sql.PreparedStatement] - ==> Parameters: joechen(String)
+2012-08-15 17:21:51,178 DEBUG [java.sql.Connection] - ooo Connection Opened
+2012-08-15 17:21:51,180 DEBUG [java.sql.PreparedStatement] - ==>  Executing: select u.* from Person u where u.id=? 
+2012-08-15 17:21:51,180 DEBUG [java.sql.PreparedStatement] - ==> Parameters: 117470631055801(Long)

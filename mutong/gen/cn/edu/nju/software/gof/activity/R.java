@@ -14,7 +14,6 @@ public final class R {
          */
         public static final int friend_list_type=0x7f060001;
         /**  FriendManagerActivity 
-<item>删除聊天记录</item> 
          */
         public static final int friend_manager_list=0x7f060002;
         public static final int setting_list=0x7f060003;

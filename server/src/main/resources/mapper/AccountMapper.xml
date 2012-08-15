@@ -9,7 +9,7 @@
 		<result property="password" column="password" />
 		<result property="sessionId" column="sessionId" />
 		<result property="deleted" column="deleted" />
-		<!--  <association property="owner" column="person_id" javaType="Person" select="Person.findById"></association>-->
+		<association property="owner" column="person_id" javaType="Person" select="Person.findById"></association>
 	</resultMap>
 	
 	<select id="findById" resultMap="AccountMapper"	parameterType="Long">
@@ -17,11 +17,11 @@
     </select>
     
 	<select id="findByUserName" resultMap="AccountMapper" parameterType="String">
-		select id, userName, password,sessionId,person_id,deleted from Account where userName=#{name} and deleted != 1
+		select * from Account where userName=#{name} and deleted != 1
     </select>
     
 	<select id="findBySessionId" resultMap="AccountMapper" parameterType="String">
-		select id, userName, password,sessionId,person_id,deleted from Account where sessionId=#{sessionId} and deleted != 1
+		select * from Account where sessionId=#{sessionId} and deleted != 1
     </select>
   
   <insert id="insert" parameterType="Account">
